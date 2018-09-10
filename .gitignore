@@ -1,0 +1,11 @@
+# list of files to ignore by git
+
+# exclude these files
+desktop.ini
+
+# exclude these directories
+data-raw/*
+result-figures/*
+obryk-lake-model/*
+
+# except these files
