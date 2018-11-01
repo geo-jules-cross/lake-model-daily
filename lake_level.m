@@ -93,7 +93,7 @@
 %
     flags = get_input_flags;
 
-% Chenck melt flag and rebuild glacier input file
+% Check melt flag and rebuild glacier input file
     if(flags.melt == 1)
       get_melt;
     end

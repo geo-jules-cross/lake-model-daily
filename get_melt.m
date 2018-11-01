@@ -14,7 +14,7 @@ function [] = get_melt
     meltDirectory='/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/data-raw/melt-data';
 
 % Model melt data to use - change this
-    meltData = 'All-Config-NoAdj.mat';
+    meltData = 'MODIS-Albedo.mat';
     melt = fullfile(meltDirectory, meltData);
 
 % Load data
@@ -41,13 +41,13 @@ function [] = get_melt
     for b=1:36
         doB = find(basinkey == basinOrder(b));
         if (basinOrder(b) <= 29)
-            LFYrVol = [LFYrVol modelSmVol(:,doB)];
+            LFYrVol = [LFYrVol modelYrVol(:,doB)];
         elseif (basinOrder(b) <= 42)
-            LHYrVol = [LHYrVol modelSmVol(:,doB)];
+            LHYrVol = [LHYrVol modelYrVol(:,doB)];
         elseif(basinOrder(b) <= 73)
-            LBYrVol = [LBYrVol modelSmVol(:,doB)];
+            LBYrVol = [LBYrVol modelYrVol(:,doB)];
         else
-            LNYrVol = [LNYrVol modelSmVol(:,doB)];
+            LNYrVol = [LNYrVol modelYrVol(:,doB)];
         end
     end
 
@@ -58,7 +58,7 @@ function [] = get_melt
     outDirectory = '/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/';
 
 % Format and update input data file
-    fileList = {'DATA/Q_glacierLB_data.txt', 'DATA/Q_glacierLH_data.txt', 'DATA/Q_glacierLF_data.txt'};
+    fileList = {'DATA/Q_glacier_LB.txt', 'DATA/Q_glacier_LH.txt', 'DATA/Q_glacier_LF.txt'};
 
     for f=1:3
         file = fileList{f};
