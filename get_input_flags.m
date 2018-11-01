@@ -25,9 +25,10 @@ function [ flags ] = get_input_flags
 %
 %	Determine which basin to run
 	flags.basin			 	= 2;	 % Basin to run 
-	% 0 = bonney
-	% 1 = hoare
-	% 2 = fryxell
+	% 0 = all
+	% 1 = bonney
+	% 2 = hoare
+    % 3 = fryxell
 
 % Get melt?	
 	flags.melt				= 1;	% Rebuild melt
