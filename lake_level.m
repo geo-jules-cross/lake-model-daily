@@ -29,7 +29,9 @@
 % n_steps = number of time step intervals
 % dt      = time step
 % t_vec   = times at which lake level is calculated
-%
+
+clear ;
+
 times = get_times;
 
 
@@ -55,6 +57,8 @@ end
 
 % Lake basin loop
 for b = 1:basinloop
+    
+    flags.basin = b;
     
     % Check melt flag and rebuild glacier input file
     if(flags.melt == 1)
@@ -229,4 +233,12 @@ for b = 1:basinloop
         
     end  %  for j = 1:n_steps
     
+    % Save all lake results to new structure
+    
+    lake.h(b,:) = h;
+    lake.A(b,:) = A;
+    lake.V(b,:) = V;
+    
 end % for b = 1:basinloop
+
+save('DATA/lake.mat', 'lake');

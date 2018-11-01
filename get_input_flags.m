@@ -12,9 +12,9 @@ function [ flags ] = get_input_flags
 %
 %  flags are returned in a structure called "flags"
 %
-  flags.Q_glacier_flag = 1;    %  Direct glacier melt
- 	%  0 = Glacier flux
- 	%  1 = Stream flux
+  flags.Q_glacier_flag = 0;    %  Direct glacier melt from
+ 	%  0 = Model melt flux
+ 	%  1 = Measured stream flux
  	%  2 = Interpolated
 
   flags.P_flag         	= 0;    %  Precipitation
@@ -24,7 +24,7 @@ function [ flags ] = get_input_flags
   flags.A_h_flag       	= 0;    %  Hypsometry
 %
 %	Determine which basin to run
-	flags.basin			 	= 2;	 % Basin to run 
+	flags.basin			 	= 0;	 % Basin to run 
 	% 0 = all
 	% 1 = bonney
 	% 2 = hoare

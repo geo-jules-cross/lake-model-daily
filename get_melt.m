@@ -67,7 +67,7 @@ function [] = get_melt
         fprintf(fileID, '%s \n', '% load Q_glacier data');
         fprintf(fileID, '%s \n', '% time (years) Q_glacier (m^3 year^-1)');
         for yr=1995:2012 
-            fprintf(fileID, fmt, [yr lakeYrVol(yr-1994,f)]);
+            fprintf(fileID, fmt, [yr+1 lakeYrVol(yr-1994,f)]);
         end
     end
 

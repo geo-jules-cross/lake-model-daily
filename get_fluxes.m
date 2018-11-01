@@ -30,17 +30,17 @@ function [fluxes] = get_fluxes(times, flags)
         %  read in GQ_direct_data from a file
         % -----------------------------------
         basin = flags.basin;  % check lake basin
-        if( basin == 0) 
+        if( basin == 1) 
                  load DATA/Q_glacier_LB.txt;
                  t_data         = Q_glacier_LB(:,1);
                  Q_glacier_data = Q_glacier_LB(:,2);
                 %
-        elseif( basin == 1)
+        elseif( basin == 2)
                 load DATA/Q_glacier_LH.txt;
                 t_data         = Q_glacier_LH(:,1);
                 Q_glacier_data = Q_glacier_LH(:,2);
                 %
-        elseif( basin == 2)
+        elseif( basin == 3)
             load DATA/Q_glacier_LF.txt;
             t_data         = Q_glacier_LF(:,1);
             Q_glacier_data = Q_glacier_LF(:,2);
@@ -48,17 +48,17 @@ function [fluxes] = get_fluxes(times, flags)
         %
     elseif ( tester == 1)
         basin = flags.basin;  % check lake basin
-        if( basin == 0) 
+        if( basin == 1) 
                  load DATA/Q_streams_LB.txt;
                  t_data         = Q_streams_LB(:,1);
                  Q_glacier_data = Q_streams_LB(:,2);
                 %
-        elseif( basin == 1)
+        elseif( basin == 2)
                 load DATA/Q_streams_LH.txt;
                 t_data         = Q_streams_LH(:,1);
                 Q_glacier_data = Q_streams_LH(:,2);
                 %
-        elseif( basin == 2)
+        elseif( basin == 3)
             load DATA/Q_streams_LF.txt;
             t_data         = Q_streams_LF(:,1);
             Q_glacier_data = Q_streams_LF(:,2);

@@ -30,29 +30,29 @@ function [geometry] = get_geometry(flags)
       %  read in hypsometry data
       % ------------------------
       basin = flags.basin;  % check lake basin
-      if( basin == 0) 
+      if( basin == 1) 
         load DATA/A_data_LB.txt;
         h_data = A_data_LB(:,1);
         A_data = A_data_LB(:,2);
         clear A_data_LB;
         % set initial lake level
-        h_0 = 62.29;
+        h_0 = 62.295; %average of Jan 1995 and Jan 1997 to get June 1996
         %
-      elseif( basin == 1) 
+      elseif( basin == 2) 
         load DATA/A_data_LH.txt;
         h_data = A_data_LH(:,1);
         A_data = A_data_LH(:,2);
         clear A_data_LH;
         % set initial lake level
-        h_0 = 74.04;
+        h_0 = 73.975; %average of December 1996 and Jan 1996 to get June 1996
         %
-      elseif( basin == 2) 
+      elseif( basin == 3) 
         load DATA/A_data_LF.txt;
         h_data = A_data_LF(:,1);
         A_data = A_data_LF(:,2);
         clear A_data_LF;
         % set initial lake level
-        h_0 = 17.41;
+        h_0 = 17.345; %average of Jan 1995 and Jan 1997 to get June 1996
         %
     else
 %
