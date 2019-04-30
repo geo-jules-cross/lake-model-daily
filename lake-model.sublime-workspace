@@ -7,32 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "lake_level.m",
-			"settings":
-			{
-				"buffer_size": 8337,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "get_input_flags.m",
-			"settings":
-			{
-				"buffer_size": 959,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DATA/S_data.txt",
-			"settings":
-			{
-				"buffer_size": 123,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -94,16 +68,30 @@
 	],
 	"file_history":
 	[
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacierLB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/melt-model/icemelt-cross/icemelt_albedo_jmc_v03.f95",
+		"/C/Users/jucross/Documents/Field-Antarctica [3-22-19]/CRYOMET/data/CRYOMET_18_winter.dat",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/lake_level.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/obryk-lake-model/lake_level.m",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_streams_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/E_data.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/P_data.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_streams_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_streams_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_input_flags.m",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacierLB.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacierLB_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_times.m",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data.txt",
 		"/Z/Antarctica_Julian/for-AGF/cryoholes_0506_fz/icemelt_zamora_v01.f95",
 		"/Z/Antarctica_Julian/for-AGF/cryoholes_0506_fz/namelist.input",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/.gitignore",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/melt-model/icemelt-cross/.gitignore",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_input_flags.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_fluxes.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_geometry.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/data-raw/lake-data/hypsometry/hyps_LB.txt",
@@ -114,14 +102,12 @@
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacierLF_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/D",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/Q",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/lake_level.m",
 		"/Z/Antarctica_Julian/for-AGF/cryoholes_model/recycle_icemelt_17_18/output/CAA_NAME_0.0001000_0.0001_09/133093.out",
 		"/Z/Antarctica_Julian/for-AGF/cryoholes_model/recycle_icemelt_17_18/output/CAA_NAME_0.0001000_0.0001_09/133093.dqdz.profile",
 		"/Z/Antarctica_Julian/for-AGF/cryoholes_model/recycle_icemelt_17_18/output/CAA_NAME_0.0001000_0.0001_09/133093.densityprofile",
 		"/Z/Antarctica_Julian/for-AGF/cryoholes_model/recycle_icemelt_17_18/output/CAA_NAME_0.0001000_0.0001_09/133093.ablation.hourly",
 		"/Z/Antarctica_Julian/for-AGF/cryoholes_model/recycle_icemelt_17_18/output/CAA_NAME_0.0001000_0.0001_09/133093.ablation.daily",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacierLH_data.txt",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/P_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_streamsLF_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_streamsLH_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_streamsLB_data.txt",
@@ -133,7 +119,6 @@
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/A_h_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/A_LH_data.html",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/E_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/data-raw/lake-data/lake-level/Lake changes.JNB",
 		"/Z/Antarctica_Julian/micromet-jmc-working/met/mk_micromet_input_file.f",
 		"/Z/Antarctica_Julian/micromet-jmc-working/misc_programs/download_all_met_data.py",
@@ -210,18 +195,7 @@
 		"/Users/Julian/Library/Application Support/Sublime Text 3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
 		"/Users/Julian/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/MultiMarkdown.sublime-settings",
 		"/Users/Julian/Desktop/DARS.md",
-		"/Users/Julian/Desktop/My Audit - Audit Results Tab.htm",
-		"/Users/Julian/Documents/!School PSU Geography MS/GEOG 590/Wrap Up #2/Cross_wrapUp2/taskAScript.py",
-		"/Users/Julian/Desktop/convert-plot.sh",
-		"/Users/Julian/Desktop/icemelt-jc-working/shell-scripts/compile.icemelt.gfortran.jc.debug.sh",
-		"/Users/Julian/Desktop/icemelt-jc-working/icemelt-spatial-wd/icemelt_8hr_Qc_spatial_xy_mc_drain_free.f95",
-		"/Users/Julian/Desktop/icemelt-jc-working/icemelt-nonspatial-wd/icemelt_8hr_Qc_spatial_xy_mc_drain_free.f95",
-		"/Users/Julian/Desktop/icemelt-jc-working/icemelt-nonspatial-wd/run_all_surfaces.sh",
-		"/Users/Julian/Desktop/icemelt-jc-working/icemelt-spatial-wd/os_info_free.inc",
-		"/Users/Julian/Desktop/icemelt-jc-working/icemelt-spatial-wd/os_info.inc",
-		"/Users/Julian/Desktop/icemelt-jc-working/shell-scripts/compile.icemelt.gfortran.jc.sh",
-		"/Users/Julian/Desktop/icemelt-jc-working/icemelt-nonspatial-wd/icemelt_8hr_Qc_spatial_xy_mc_drain.f",
-		"/Users/Julian/Desktop/icemelt-jc-working/os_info.inc"
+		"/Users/Julian/Desktop/My Audit - Audit Results Tab.htm"
 	],
 	"find":
 	{
@@ -256,95 +230,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "lake_level.m",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8337,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Matlab/Matlab.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1680.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "get_input_flags.m",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 959,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								828,
-								828
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Matlab/Matlab.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "DATA/S_data.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 123,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								122,
-								122
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		},
 		{

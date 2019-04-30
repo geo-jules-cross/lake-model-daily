@@ -5,16 +5,16 @@ function [] = get_melt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Load annual melt volumes from ICEMELT model
 %   Schema to sum model basin contribution by lake basin
-%       Lake Fryxell    = 10 to 29
-%       Lake Hoare      = 31 to 42
-%       Lake Bonney     = 43 to 73
+%       Lake Bonney    = 10 to 29
+%       Lake Hoare      = 33 to 42
+%       Lake Fryxell     = 43 to 73
 % SUMMER MELT NOT ANNUAL TOTAL - IGNORE WINTER MELT
 
 % Output Directory
     meltDirectory='/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/data-raw/melt-data';
 
 % Model melt data to use - change this
-    meltData = 'MODIS-Albedo.mat';
+    meltData = 'albedo-70.mat';
     melt = fullfile(meltDirectory, meltData);
 
 % Load data
@@ -22,7 +22,6 @@ function [] = get_melt
 
 % Initialize lake arrays
     LBYrVol = [];
-    LCYrVol = [];
     LHYrVol = [];
     LFYrVol = [];
     LNYrVol = [];
@@ -40,12 +39,12 @@ function [] = get_melt
 % Populate lake volume arrays
     for b=1:36
         doB = find(basinkey == basinOrder(b));
-        if (basinOrder(b) <= 29)
-            LFYrVol = [LFYrVol modelYrVol(:,doB)];
-        elseif (basinOrder(b) <= 42)
-            LHYrVol = [LHYrVol modelYrVol(:,doB)];
-        elseif(basinOrder(b) <= 73)
+        if (basinOrder(b) <= 23)
             LBYrVol = [LBYrVol modelYrVol(:,doB)];
+        elseif (basinOrder(b) >= 33 && basinOrder(b) <= 42)
+            LHYrVol = [LHYrVol modelYrVol(:,doB)];
+        elseif(basinOrder(b) >= 43 && basinOrder(b) <= 73)
+            LFYrVol = [LFYrVol modelYrVol(:,doB)];
         else
             LNYrVol = [LNYrVol modelYrVol(:,doB)];
         end
