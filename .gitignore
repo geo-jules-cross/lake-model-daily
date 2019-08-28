@@ -6,6 +6,6 @@ desktop.ini
 # exclude these directories
 data-raw/*
 result-figures/*
-obryk-lake-model/*
+scripts-other/*
 
 # except these files

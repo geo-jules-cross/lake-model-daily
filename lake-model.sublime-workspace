@@ -7,6 +7,33 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "DATA/S_data_LB_optimized.txt",
+			"settings":
+			{
+				"buffer_size": 337,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "DATA/S_data_LH_optimized.txt",
+			"settings":
+			{
+				"buffer_size": 337,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "DATA/S_data_LF_optimized.txt",
+			"settings":
+			{
+				"buffer_size": 337,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -64,40 +91,90 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model"
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA"
 	],
 	"file_history":
 	[
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/melt-model/icemelt-cross/icemelt_albedo_jmc_v03.f95",
-		"/C/Users/jucross/Documents/Field-Antarctica [3-22-19]/CRYOMET/data/CRYOMET_18_winter.dat",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/lake_level.m",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LB_optimized.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LH_optimized.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LF_optimized.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_LF.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_LH.txt",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/obryk-lake-model/lake_level.m",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_combo_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_combo_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_combo_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/dh_lake_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/dh_lake_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/dh_lake_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/dh_raw_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/dh_raw_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_input_flags.m",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_new_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_new_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_new_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LH_dugan.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LF_dugan.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LB_dugan.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/old/S_data_LB_old.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/old/S_data_LF_old.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/old/S_data_LH_old.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/A_data_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/A_data_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/A_data_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LH_alt.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LF_alt.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_LB_alt.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_comboHigh_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/old/S_data_LB_alt.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_comboHigh_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_comboHigh_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_comboLow_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_comboLow_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_comboLow_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_combo_project_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_combo_project_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_combo_project_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_fluxes.m",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_streams_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_project_LH.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_project_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data_project_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_times.m",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LH_new.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LB_new.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LF_new.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LB_old.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LH_old.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LF_old.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/lake_level.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LB.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LH.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/h_lake_LF.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_melt.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/S_data.txt",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacier_LF.txt",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_streams_LB.txt",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/sublimation-model/LatentHeat-AGF/test.dat",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/melt-model/icemelt-cross/icemelt_albedo_jmc_v03.f95",
+		"/C/Users/jucross/Documents/Field-Antarctica [3-22-19]/CRYOMET/data/CRYOMET_18_winter.dat",
+		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/obryk-lake-model/lake_level.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/E_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/P_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_streams_LH.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_streams_LF.txt",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_input_flags.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacierLB.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacierLB_data.txt",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_times.m",
 		"/Z/Antarctica_Julian/for-AGF/cryoholes_0506_fz/icemelt_zamora_v01.f95",
 		"/Z/Antarctica_Julian/for-AGF/cryoholes_0506_fz/namelist.input",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/.gitignore",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/melt-model/icemelt-cross/.gitignore",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_fluxes.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_geometry.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/data-raw/lake-data/hypsometry/hyps_LB.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/A_LB_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/A_LF_data.txt",
-		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_melt.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/get_measured.m",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/Q_glacierLF_data.txt",
 		"/C/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/D",
@@ -146,56 +223,7 @@
 		"/Z/Antarctica_Julian/icemelt-wd.sublime-project",
 		"/Z/Antarctica_Julian/scripts/colleen_slurm_static.sh",
 		"/Z/Antarctica_PastUsers/ANTARCTICA_Matt/Micromet_working_code/outputs_user.f",
-		"/Z/Antarctica_PastUsers/ANTARCTICA_Matt/Micromet_working_code/micromet_code.f",
-		"/Z/Antarctica_Julian/icemelt-jmc-working/icemelt.sublime-project",
-		"/C/Users/jucross/AppData/Roaming/Sublime Text 3/Packages/Anaconda/README.md",
-		"/Users/Julian/Downloads/Report_final.md",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-matlab/get_times.m",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-matlab/lake_level.m",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/t_analyt.py",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/get_fluxes.py",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/get_geometry.py",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/get_times.py",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/get_input_flags.py",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-matlab/t_anlyt.m",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-matlab/get_fluxes.m",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-matlab/get_input_flags.m",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model.sublime-project",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model/t_anlyt.m",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model/get_geometry.m",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model/get_fluxes.m",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/DATA/A_h_data.txt",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/DATA/A_h_data_largeGLW.txt",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/DATA/A_h_data_v1.txt",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/DATA/E_data.txt",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/DATA/GQ_direct_data.txt",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/DATA/P_data.txt",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/DATA/Q_seeps_data.txt",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/DATA/Q_streams_data.txt",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/lake-model-python/DATA/S_data.txt",
-		"/Volumes/antarctica/Antarctica_Julian/icemelt-jmc-working/run_parallel.sh",
-		"/etc/ssh/ssh_config",
-		"/Users/Julian/.ssh/config",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Lab3/Lab3_2.md",
-		"/Users/Julian/Desktop/Lab3/Lab3_1.md",
-		"/Users/Julian/Desktop/Lab3/Lab3.md",
-		"/Users/Julian/Desktop/Lab3/Ex4_2_3/mpi_submit.sh",
-		"/Users/Julian/Desktop/Lab3/Ex4_2_3/rc_test.py",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Week07/Sample/mpi_hello.txt",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/Proposal/Proposal.md",
-		"/Volumes/JULES FD1/SYSC 535 Project/lake-model/get_times.m",
-		"/Volumes/JULES FD1/SYSC 535 Project/lake-model-python/README.md",
-		"/Users/Julian/Desktop/Project/Proposal.md",
-		"/Users/Julian/Documents/!School PSU Geography MS/SYSC 535/Project/Proposal.md",
-		"/Users/Julian/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/Markdown.sublime-settings",
-		"/Users/Julian/Library/Application Support/Sublime Text 3/Packages/LiveReload/LiveReload.sublime-settings",
-		"/Users/Julian/Library/Application Support/Sublime Text 3/Packages/User/LiveReload.sublime-settings",
-		"/Users/Julian/Library/Application Support/Sublime Text 3/Packages/User/MarkdownPreview.sublime-settings",
-		"/Users/Julian/Desktop/Package Control Messages.md",
-		"/Users/Julian/Library/Application Support/Sublime Text 3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
-		"/Users/Julian/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/MultiMarkdown.sublime-settings",
-		"/Users/Julian/Desktop/DARS.md",
-		"/Users/Julian/Desktop/My Audit - Audit Results Tab.htm"
+		"/Z/Antarctica_PastUsers/ANTARCTICA_Matt/Micromet_working_code/micromet_code.f"
 	],
 	"find":
 	{
@@ -230,8 +258,93 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "DATA/S_data_LB_optimized.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 337,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								337,
+								337
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "DATA/S_data_LH_optimized.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 337,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								85,
+								85
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "DATA/S_data_LF_optimized.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 337,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								337,
+								337
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		},
 		{
@@ -242,7 +355,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 39.0
 	},
 	"input":
 	{
@@ -268,7 +381,7 @@
 		"cols":
 		[
 			0.0,
-			0.918566775244,
+			0.488578551079,
 			1.0
 		],
 		"rows":
@@ -308,12 +421,16 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"I:\\Research\\Shares\\antarctica\\Antarctica_Julian\\icemelt-cross\\icemelt.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
@@ -332,7 +449,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 224.0,
+	"side_bar_width": 276.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

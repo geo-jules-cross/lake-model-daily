@@ -1,6 +1,0 @@
-% load S data (Sublimation from lakes)
-%  time (years)     S (m year^-1) 
-    1995            0.18
-    2003            0.18
-    2004            0.08
-    2013            0.08
