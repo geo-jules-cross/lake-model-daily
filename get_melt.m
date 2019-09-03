@@ -11,7 +11,7 @@ function [] = get_melt
 % SUMMER MELT NOT ANNUAL TOTAL - IGNORE WINTER MELT
 
 % Output Directory
-    meltDirectory='/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/data-raw/melt-data';
+    meltDirectory='/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA';
 
 % Model melt data to use - change this
     meltData = 'albedo-many-adj-30.mat';
