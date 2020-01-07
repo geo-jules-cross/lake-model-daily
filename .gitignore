@@ -6,5 +6,6 @@ desktop.ini
 # exclude these directories
 data-raw/*
 result-figures/*
+scripts-other/*
 
 # except these files
