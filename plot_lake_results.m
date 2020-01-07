@@ -16,34 +16,34 @@ lake_streams = structure.lake;
 clear structure;
 
 % load Bonney measured lake level
-fid = fopen('DATA/dh_lake_LB.txt');
+fid = fopen('DATA/dh_lake_LB_1996.txt');
 LB = textscan(fid, '%{yyyy}D %f', 'HeaderLines', 2);
 lake.measured.LB.date(:,1) = LB{1,1};
 lake.measured.LB.dh(:,1) = LB{1,2};
-fid = fopen('DATA/dh_raw_LB.txt');
-LB = textscan(fid, '%{M/d/yyyy}D %f', 'HeaderLines', 2);
+fid = fopen('DATA/dh_raw_LB_1996.txt');
+LB = textscan(fid, '%{M/d/yy}D %f', 'HeaderLines', 2);
 lake.raw.LB.date(:,1) = LB{1,1}-calyears(0);
 lake.raw.LB.dh(:,1) = LB{1,2};
 clear LB
 
 % load Hoare measured lake level
-fid = fopen('DATA/dh_lake_LH.txt');
+fid = fopen('DATA/dh_lake_LH_1996.txt');
 LH = textscan(fid, '%{yyyy}D %f', 'HeaderLines', 2);
 lake.measured.LH.date(:,1) = LH{1,1};
 lake.measured.LH.dh(:,1) = LH{1,2};
-fid = fopen('DATA/dh_raw_LH.txt');
-LH = textscan(fid, '%{M/d/yyyy}D %f', 'HeaderLines', 2);
+fid = fopen('DATA/dh_raw_LH_1996.txt');
+LH = textscan(fid, '%{M/d/yy}D %f', 'HeaderLines', 2);
 lake.raw.LH.date(:,1) = LH{1,1}-calyears(0);
 lake.raw.LH.dh(:,1) = LH{1,2};
 clear LH
 
 % load Fryxell measured lake level
-fid = fopen('DATA/dh_lake_LF.txt');
+fid = fopen('DATA/dh_lake_LF_1996.txt');
 LF = textscan(fid, '%{yyyy}D %f', 'HeaderLines', 2);
 lake.measured.LF.date(:,1) = LF{1,1};
 lake.measured.LF.dh(:,1) = LF{1,2};
-fid = fopen('DATA/dh_raw_LF.txt');
-LF = textscan(fid, '%{M/d/yyyy}D %f', 'HeaderLines', 2);
+fid = fopen('DATA/dh_raw_LF_1996.txt');
+LF = textscan(fid, '%{M/d/yy}D %f', 'HeaderLines', 2);
 lake.raw.LF.date(:,1) = LF{1,1}-calyears(0);
 lake.raw.LF.dh(:,1) = LF{1,2};
 clear LF
@@ -192,7 +192,7 @@ xticks([datetime(1993,1,1):calyears(1):datetime(2014,1,1)]);
 xtickangle(45)
 datetick('x','KeepTicks')
 xticklabels('')
-ylim([-1 1])
+ylim([-1 1.5])
 yticklabels('auto')
 %legend({'Obs - Surveyed','Obs - Running Mean', 'Simulated'}, 'Location', 'NorthWest');
 text(datetime(2002,1,1), 0.75,'Lake Hoare', 'FontWeight', 'bold', 'FontSize',14);
@@ -222,7 +222,7 @@ xticks([datetime(1993,1,1):calyears(1):datetime(2014,1,1)]);
 xtickangle(45)
 dateformat = 'mmm yy';
 datetick('x',dateformat, 'KeepTicks')
-ylim([-1 1])
+ylim([-1 1.5])
 yticklabels('auto')
 %legend({'Obs - Surveyed','Obs - Running Mean', 'Simulated'}, 'Location', 'NorthWest');
 text(datetime(2002,1,1), 0.75,'Lake Fryxell', 'FontWeight', 'bold', 'FontSize',14);
