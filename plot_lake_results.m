@@ -3,13 +3,13 @@
 clear ;
 %% Load Data
 
-structure = load('DATA\lake.mat');
+structure = load('DATA/lake.mat');
 
 lake = structure.lake;
 
 clear structure;
 
-structure = load('DATA\lake-stream-in.mat');
+structure = load('DATA/lake-stream-in.mat');
 
 lake_streams = structure.lake;
 
@@ -51,78 +51,87 @@ clear LF
 %% Generate modeled lake level change
 
 % Bonney lake level change
+% bonney_datum = 62.29;
+bonney_datum = 62.30;
+
 lake.modeled.LB.date(:,1) = datetime(lake.t_vec,3,31) +calyears(0);
 lake_streams.modeled.LB.date(:,1) = datetime(lake_streams.t_vec,3,31) +calyears(0);
     % lake.modeled.LB.year(:,1) = LB{1,1};
     % datetime(year(lake.modeled.LB.year(:)),1,1);%+calyears(1);
     % datetime(year(lake.modeled.LB.year(:)), 3, 31);
-lake.modeled.LB.dh(:,1) = lake.h.glacier(1,:)'-62.29;
-lake_streams.modeled.LBcombo.dh(:,1) = lake_streams.h.combo(1,:)'-62.29;
-lake_streams.modeled.LBlow.dh(:,1) = lake_streams.h.low(1,:)'-62.29;
-lake_streams.modeled.LBhigh.dh(:,1) = lake_streams.h.high(1,:)'-62.29;
+lake.modeled.LB.dh(:,1) = lake.h.glacier(1,:)'-bonney_datum;
+lake_streams.modeled.LBcombo.dh(:,1) = lake_streams.h.combo(1,:)'-bonney_datum;
+lake_streams.modeled.LBlow.dh(:,1) = lake_streams.h.low(1,:)'-bonney_datum;
+lake_streams.modeled.LBhigh.dh(:,1) = lake_streams.h.high(1,:)'-bonney_datum;
 
 % Hoare lake level change
+% hoare_datum = 74.04;
+hoare_datum = 73.92;
+
 lake.modeled.LH.date(:,1) = datetime(lake.t_vec,3,31) +calyears(0);
 lake_streams.modeled.LH.date(:,1) = datetime(lake_streams.t_vec,3,31) +calyears(0);
-lake.modeled.LH.dh(:,1) = lake.h.glacier(2,:)'-74.04;
-lake_streams.modeled.LHcombo.dh(:,1) = lake_streams.h.combo(2,:)'-74.04;
-lake_streams.modeled.LHlow.dh(:,1) = lake_streams.h.low(2,:)'-74.04;
-lake_streams.modeled.LHhigh.dh(:,1) = lake_streams.h.high(2,:)'-74.04;
+lake.modeled.LH.dh(:,1) = lake.h.glacier(2,:)'-hoare_datum;
+lake_streams.modeled.LHcombo.dh(:,1) = lake_streams.h.combo(2,:)'-hoare_datum;
+lake_streams.modeled.LHlow.dh(:,1) = lake_streams.h.low(2,:)'-hoare_datum;
+lake_streams.modeled.LHhigh.dh(:,1) = lake_streams.h.high(2,:)'-hoare_datum;
 
 % Fryxell lake level change
+% fryxell_datum = 17.41;
+fryxell_datum = 17.28;
+
 lake.modeled.LF.date(:,1) = datetime(lake.t_vec,3,31) +calyears(0);
 lake_streams.modeled.LF.date(:,1) = datetime(lake_streams.t_vec,3,31) +calyears(0);
-lake.modeled.LF.dh(:,1) = lake.h.glacier(3,:)'-17.41;
-lake_streams.modeled.LFcombo.dh(:,1) = lake_streams.h.combo(3,:)'-17.41;
-lake_streams.modeled.LFlow.dh(:,1) = lake_streams.h.low(3,:)'-17.41;
-lake_streams.modeled.LFhigh.dh(:,1) = lake_streams.h.high(3,:)'-17.41;
+lake.modeled.LF.dh(:,1) = lake.h.glacier(3,:)'-fryxell_datum;
+lake_streams.modeled.LFcombo.dh(:,1) = lake_streams.h.combo(3,:)'-fryxell_datum;
+lake_streams.modeled.LFlow.dh(:,1) = lake_streams.h.low(3,:)'-fryxell_datum;
+lake_streams.modeled.LFhigh.dh(:,1) = lake_streams.h.high(3,:)'-fryxell_datum;
 
 save('lake.mat', 'lake')
 
 close all
 %% Plot lake level change - All one plot
 
-figure(1); clf; hold all; box on; grid on;
-set(gcf,'units','normalized','outerposition',[0.1 0.3 0.6 0.6])
-
-set(gca,'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'FontSize',14,'LineWidth', 1.5, 'GridColor', 'k');
-
-% Measured Annual
-% plot(lake.measured.LB.date(:), lake.measured.LB.dh(:), '-','Color',[0.5 0.5 0.5],'LineWidth', 1.5)
-% plot(lake.measured.LH.date(:), lake.measured.LH.dh(:), '-','Color',[0.5 0.5 0.5],'LineWidth', 1.5)
-% plot(lake.measured.LF.date(:), lake.measured.LF.dh(:), '-','Color',[0.5 0.5 0.5],'LineWidth', 1.5)
-
-% Measured All
-% plot(lake.raw.LB.date(:), lake.raw.LB.dh(:),':','Color',[0.5 0.5 0.5],'LineWidth', 1.5, 'HandleVisibility','off')
-% plot(lake.raw.LH.date(:), lake.raw.LH.dh(:),':','Color',[0.5 0.5 0.5],'LineWidth', 1.5, 'HandleVisibility','off')
-% plot(lake.raw.LF.date(:), lake.raw.LF.dh(:),':','Color',[0.5 0.5 0.5],'LineWidth', 1.5, 'HandleVisibility','off')
-
-% Measured Smoothed
-% plot(lake.raw.LB.date(:), movmean(lake.raw.LB.dh(:),5),'-k','LineWidth', 1.5)
-% plot(lake.raw.LH.date(:), movmean(lake.raw.LH.dh(:),5),'-r','LineWidth', 1.5)
-% plot(lake.raw.LF.date(:), movmean(lake.raw.LF.dh(:),5),'-b','LineWidth', 1.5)
-
-% Modeled
-plot(lake.modeled.LB.date(:), lake.modeled.LB.dh(:), 's--k','LineWidth', 1.5)
-plot(lake.modeled.LH.date(:), lake.modeled.LH.dh(:), 's--r','LineWidth', 1.5)
-plot(lake.modeled.LF.date(:), lake.modeled.LF.dh(:), 's--b','LineWidth', 1.5)
-
-ylabel('Lake Level Change [m]')
-%ylim([-1 1.5])
-ylim([-1 2.5])
-
-line([datetime(1990,1,1), datetime(2019,1,1)],[0,0], 'Color','k', 'LineWidth', 1)
-xlabel('Year')
-set(gca,'XTick', [datetime(1990,1,1):calyears(2):datetime(2019,1,1)]);
-xlim([datetime(1994,1,1) datetime(2014,1,1)])
-datetick('x', 'keepticks', 'keeplimits')
-xtickangle(45)
-
-legend({'Bonney', 'Hoare', 'Fryxell'});
-
-% legend({'Bonney - Surveyed', 'Hoare', 'Fryxell',...
-%     'Bonney - Running Mean', 'Hoare', 'Fryxell'});
-%      'Bonney - Modeled', 'Hoare', 'Fryxell',});
+% figure(1); clf; hold all; box on; grid on;
+% set(gcf,'units','normalized','outerposition',[0.1 0.3 0.6 0.6])
+% 
+% set(gca,'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'FontSize',14,'LineWidth', 1.5, 'GridColor', 'k');
+% 
+% % Measured Annual
+% % plot(lake.measured.LB.date(:), lake.measured.LB.dh(:), '-','Color',[0.5 0.5 0.5],'LineWidth', 1.5)
+% % plot(lake.measured.LH.date(:), lake.measured.LH.dh(:), '-','Color',[0.5 0.5 0.5],'LineWidth', 1.5)
+% % plot(lake.measured.LF.date(:), lake.measured.LF.dh(:), '-','Color',[0.5 0.5 0.5],'LineWidth', 1.5)
+% 
+% % Measured All
+% % plot(lake.raw.LB.date(:), lake.raw.LB.dh(:),':','Color',[0.5 0.5 0.5],'LineWidth', 1.5, 'HandleVisibility','off')
+% % plot(lake.raw.LH.date(:), lake.raw.LH.dh(:),':','Color',[0.5 0.5 0.5],'LineWidth', 1.5, 'HandleVisibility','off')
+% % plot(lake.raw.LF.date(:), lake.raw.LF.dh(:),':','Color',[0.5 0.5 0.5],'LineWidth', 1.5, 'HandleVisibility','off')
+% 
+% % Measured Smoothed
+% % plot(lake.raw.LB.date(:), movmean(lake.raw.LB.dh(:),5),'-k','LineWidth', 1.5)
+% % plot(lake.raw.LH.date(:), movmean(lake.raw.LH.dh(:),5),'-r','LineWidth', 1.5)
+% % plot(lake.raw.LF.date(:), movmean(lake.raw.LF.dh(:),5),'-b','LineWidth', 1.5)
+% 
+% % Modeled
+% plot(lake.modeled.LB.date(:), lake.modeled.LB.dh(:), 's--k','LineWidth', 1.5)
+% plot(lake.modeled.LH.date(:), lake.modeled.LH.dh(:), 's--r','LineWidth', 1.5)
+% plot(lake.modeled.LF.date(:), lake.modeled.LF.dh(:), 's--b','LineWidth', 1.5)
+% 
+% ylabel('Lake Level Change [m]')
+% %ylim([-1 1.5])
+% ylim([-1 2.5])
+% 
+% line([datetime(1990,1,1), datetime(2019,1,1)],[0,0], 'Color','k', 'LineWidth', 1)
+% xlabel('Year')
+% set(gca,'XTick', [datetime(1990,1,1):calyears(2):datetime(2019,1,1)]);
+% xlim([datetime(1994,1,1) datetime(2014,1,1)])
+% datetick('x', 'keepticks', 'keeplimits')
+% xtickangle(45)
+% 
+% legend({'Bonney', 'Hoare', 'Fryxell'});
+% 
+% % legend({'Bonney - Surveyed', 'Hoare', 'Fryxell',...
+% %     'Bonney - Running Mean', 'Hoare', 'Fryxell'});
+% %      'Bonney - Modeled', 'Hoare', 'Fryxell',});
 
 %% Plot lake level change - Seperate plots
 
@@ -140,14 +149,14 @@ plot(lake.modeled.LB.date(:), lake.modeled.LB.dh(:), 's--k','LineWidth', 1.5)
 % Zero Line
 line([datetime(1993,1,1), datetime(2018,1,1)],[0,0], 'Color','k', 'LineWidth', 1, 'HandleVisibility','off')
 % Modeled w/ Stream Inflows
-% x_data = lake_streams.modeled.LB.date(:);
-% y_data = lake_streams.modeled.LBcombo.dh(:);
-% lower_confidence_band_y = lake_streams.modeled.LBlow.dh(:);
-% upper_confidence_band_y = lake_streams.modeled.LBhigh.dh(:);
-% x_plot = [x_data' fliplr(x_data')];
-% y_plot = [lower_confidence_band_y' fliplr(upper_confidence_band_y')];
-% fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
-% plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
+x_data = lake_streams.modeled.LB.date(:);
+y_data = lake_streams.modeled.LBcombo.dh(:);
+lower_confidence_band_y = lake_streams.modeled.LBlow.dh(:);
+upper_confidence_band_y = lake_streams.modeled.LBhigh.dh(:);
+x_plot = [x_data' fliplr(x_data')];
+y_plot = [lower_confidence_band_y' fliplr(upper_confidence_band_y')];
+fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
+plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
 
 xticks([datetime(1993,1,1):calyears(1):datetime(2014,1,1)]);
 datetick('x','KeepTicks')
@@ -169,14 +178,14 @@ plot(lake.modeled.LH.date(:), lake.modeled.LH.dh(:), 's--k','LineWidth', 1.5)
 % Zero Line
 line([datetime(1993,1,1), datetime(2018,1,1)],[0,0], 'Color','k', 'LineWidth', 1, 'HandleVisibility','off')
 % Modeled w/ Stream Inflows
-% x_data = lake_streams.modeled.LH.date(:);
-% y_data = lake_streams.modeled.LHcombo.dh(:);
-% lower_confidence_band_y = lake_streams.modeled.LHlow.dh(:);
-% upper_confidence_band_y = lake_streams.modeled.LHhigh.dh(:);
-% x_plot = [x_data' fliplr(x_data')];
-% y_plot = [lower_confidence_band_y' fliplr(upper_confidence_band_y')];
-% fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
-% plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
+x_data = lake_streams.modeled.LH.date(:);
+y_data = lake_streams.modeled.LHcombo.dh(:);
+lower_confidence_band_y = lake_streams.modeled.LHlow.dh(:);
+upper_confidence_band_y = lake_streams.modeled.LHhigh.dh(:);
+x_plot = [x_data' fliplr(x_data')];
+y_plot = [lower_confidence_band_y' fliplr(upper_confidence_band_y')];
+fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
+plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
 
 ylabel('Lake Level Change [m]')
 xticks([datetime(1993,1,1):calyears(1):datetime(2014,1,1)]);
@@ -199,14 +208,14 @@ plot(lake.modeled.LF.date(:), lake.modeled.LF.dh(:), 's--k','LineWidth', 1.5)
 % Zero Line
 line([datetime(1993,1,1), datetime(2018,1,1)],[0,0], 'Color','k', 'LineWidth', 1, 'HandleVisibility','off')
 % Modeled w/ Stream Inflows
-% x_data = lake_streams.modeled.LF.date(:);
-% y_data = lake_streams.modeled.LFcombo.dh(:);
-% lower_confidence_band_y = lake_streams.modeled.LFlow.dh(:);
-% upper_confidence_band_y = lake_streams.modeled.LFhigh.dh(:);
-% x_plot = [x_data' fliplr(x_data')];
-% y_plot = [lower_confidence_band_y' fliplr(upper_confidence_band_y')];
-% fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
-% plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
+x_data = lake_streams.modeled.LF.date(:);
+y_data = lake_streams.modeled.LFcombo.dh(:);
+lower_confidence_band_y = lake_streams.modeled.LFlow.dh(:);
+upper_confidence_band_y = lake_streams.modeled.LFhigh.dh(:);
+x_plot = [x_data' fliplr(x_data')];
+y_plot = [lower_confidence_band_y' fliplr(upper_confidence_band_y')];
+fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
+plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
 
 xlabel('Date')
 xticks([datetime(1993,1,1):calyears(1):datetime(2014,1,1)]);

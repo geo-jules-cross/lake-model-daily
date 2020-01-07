@@ -95,13 +95,16 @@ for l = 1:streamInflowLoop
         % Temp S_offset
         if b == 3 % Fryxell
             s_offset = -0.06;
+%             s_offset = -0.06;
 %             s_offset = 0;
         elseif b == 2 % Hoare
+            s_offset = +0.09;
 %             s_offset = +0.02;
-            s_offset = 0;
+%             s_offset = 0;
         elseif b == 1 % Bonney
+            s_offset = +0.08;
 %             s_offset = +0.01;
-            s_offset = 0;
+%             s_offset = 0;
         end
         
         Q_glacier = fluxes.Q_glacier;
@@ -238,8 +241,8 @@ for l = 1:streamInflowLoop
             climate_old = climate_new;
             
             % get correct inflows and climate for time t+dt
-            inflows_new = Q_glacier(j+1);
-            climate_new = P(j+1) -S(j+1) - E(j+1);
+            inflows_new = Q_glacier(j);
+            climate_new = P(j) -S(j) - E(j);
             
             
             % inner iterative loop on A_new (nonlinearity)
@@ -256,8 +259,8 @@ for l = 1:streamInflowLoop
                 disp(['      Iteration  ', num2str(j_iter)] );
                 
                 
-                %             dV = 0.5*( inflows_old + inflows_new ...
-                %                 + climate_old*A_old + climate_new*A_new ) * dt;
+%                 dV = 0.5*( inflows_old + inflows_new ...
+%                     + climate_old*A_old + climate_new*A_new ) * dt;
                 
                 dV = (inflows_new + climate_new*A_new ) * dt;
                 

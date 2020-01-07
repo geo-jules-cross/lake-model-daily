@@ -35,7 +35,7 @@ function [ flags ] = get_input_flags
 %
 % Get melt?	
 %
-	flags.melt				= 0;	% Rebuild melt
+	flags.melt				= 1;	% Rebuild melt
 %
 %
 %  flags are returned in a structure called "flags"

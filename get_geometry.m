@@ -36,7 +36,8 @@ function [geometry] = get_geometry(flags)
         A_data = A_data_LB(:,2);
         clear A_data_LB;
         % set initial lake level
-        h_0 = 62.29; % 1/23/1995
+%         h_0 = 62.29; % 1/23/1995
+        h_0 = 62.30; % 1/24/1997
         %
       elseif( basin == 2) 
         load DATA/A_data_LH.txt;
@@ -44,7 +45,8 @@ function [geometry] = get_geometry(flags)
         A_data = A_data_LH(:,2);
         clear A_data_LH;
         % set initial lake level
-        h_0 = 74.04; % 1/1/1995
+%         h_0 = 74.04; % 1/1/1995
+        h_0 = 73.92;
         %
       elseif( basin == 3) 
         load DATA/A_data_LF.txt;
@@ -52,7 +54,8 @@ function [geometry] = get_geometry(flags)
         A_data = A_data_LF(:,2);
         clear A_data_LF;
         % set initial lake level
-        h_0 = 17.41; % 1/23/1995
+%         h_0 = 17.41; % 1/23/1995
+        h_0 = 17.28; % 1/24/1995
         %
     else
 %

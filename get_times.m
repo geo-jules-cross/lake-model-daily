@@ -9,9 +9,14 @@ function [times] = get_times
 % t_end   = end time    
 % nsteps  = number of time intervals between t_0 and t_end
 %
-    t_0     = 1995;
+
+    t_0     = 1996;
     t_end   = 2012;
-    n_steps = 17;
+    n_steps = 16;
+
+%     t_0     = 1995;
+%     t_end   = 2012;
+%     n_steps = 17;
     
 %     t_0     = 1994;
 %     t_end   = 2030;

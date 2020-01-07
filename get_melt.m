@@ -10,15 +10,12 @@ function [] = get_melt
 %       Lake Fryxell     = 43 to 73
 % SUMMER MELT NOT ANNUAL TOTAL - IGNORE WINTER MELT
 
-% Output Directory
-    meltDirectory='/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/data-raw/melt-data';
+% Output Directory 
+    meltDirectory='/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/data-raw/melt-data';
 
 % Model melt data to use - change this
-    meltData = 'albedo-many-adj-30.mat';
-%     meltData = 'albedo-many-adj-new.mat';
-%     meltData = 'adj-albedo-notbasins.mat';
-%     meltData = 'adj-albedo-07.mat';
-%     meltData = 'base-MODIS.mat';
+    meltData = 'alb-adj.mat';
+
     melt = fullfile(meltDirectory, meltData);
 
 % Load data
@@ -61,12 +58,12 @@ function [] = get_melt
             % seperate inflow.
             % Lake Bonney
 %             Q_subaqueous_LB(1:18,1) = 31400;
-            Q_subaqueous_LB(1:18,1) = 31500;
-%             Q_subaqueous_LB(1:18,1) = 0;
+%            Q_subaqueous_LB(1:18,1) = 31500;
+             Q_subaqueous_LB(1:18,1) = 0;
             % Lake Hoare
 %             Q_subaqueous_LH(1:18,1) = 21700;
-            Q_subaqueous_LH(1:18,1) = 31800;
-%             Q_subaqueous_LH(1:18,1) = 0;
+%            Q_subaqueous_LH(1:18,1) = 31800;
+             Q_subaqueous_LH(1:18,1) = 0;
             
             doB = find(basinkey == basinOrder(b));
             if (basinOrder(b) <= 29)
@@ -155,7 +152,7 @@ function [] = get_melt
     lakeBothLowYrVol = [sum(LBBothLowVol,2)+Q_subaqueous_LB sum(LHBothLowVol,2)+Q_subaqueous_LH sum(LFBothLowVol,2) sum(LNBothLowVol,2)];
     
 % Data output file
-    outDirectory = '/Users/jucross/Documents/MDV-Lakes-Thesis/lake-model/DATA/';
+    outDirectory = 'Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/';
 
 % Format and update input data files
     fileList = {'DATA/Q_glacier_LB.txt', 'DATA/Q_glacier_LH.txt', 'DATA/Q_glacier_LF.txt'};
@@ -166,9 +163,9 @@ function [] = get_melt
         fmt = '%d \t \t %f \n';
         fprintf(fileID, '%s \n', '% load Q_glacier data');
         fprintf(fileID, '%s \n', '% time (years) Q_glacier (m^3 year^-1)');
-        fprintf(fileID, fmt, [1995 0]);
+        fprintf(fileID, fmt, [1994 0.0]);
         for yr=1995:2012 
-            fprintf(fileID, fmt, [yr+1 lakeYrVol(yr-1994,f)]);
+            fprintf(fileID, fmt, [yr lakeYrVol(yr-1994,f)]);
         end
     end
 
@@ -181,9 +178,9 @@ function [] = get_melt
         fmt = '%d \t \t %f \n';
         fprintf(fileID, '%s \n', '% load Q_combo data');
         fprintf(fileID, '%s \n', '% time (years) Q_combo (m^3 year^-1)');
-        fprintf(fileID, fmt, [1995 0]);
+        fprintf(fileID, fmt, [1994 0.0]);
         for yr=1995:2012 
-            fprintf(fileID, fmt, [yr+1 lakeBothYrVol(yr-1994,f)]);
+            fprintf(fileID, fmt, [yr lakeBothYrVol(yr-1994,f)]);
         end
     end
     
@@ -196,13 +193,13 @@ function [] = get_melt
         fmt = '%d \t \t %f \n';
         fprintf(fileID, '%s \n', '% load Q_comboHigh data');
         fprintf(fileID, '%s \n', '% time (years) Q_comboHigh (m^3 year^-1)');
-        fprintf(fileID, fmt, [1995 0]);
+        fprintf(fileID, fmt, [1994 0.0]);
         for yr=1995:2012 
-            fprintf(fileID, fmt, [yr+1 lakeBothHighYrVol(yr-1994,f)]);
+            fprintf(fileID, fmt, [yr lakeBothHighYrVol(yr-1994,f)]);
         end
     end
     
-    % Combo
+    % Combo Low
     fileList = {'DATA/Q_comboLow_LB.txt', 'DATA/Q_comboLow_LH.txt', 'DATA/Q_comboLow_LF.txt'};
 
     for f=1:3
@@ -211,9 +208,9 @@ function [] = get_melt
         fmt = '%d \t \t %f \n';
         fprintf(fileID, '%s \n', '% load Q_comboLow data');
         fprintf(fileID, '%s \n', '% time (years) Q_comboLow (m^3 year^-1)');
-        fprintf(fileID, fmt, [1995 0]);
+        fprintf(fileID, fmt, [1994 0.0]);
         for yr=1995:2012 
-            fprintf(fileID, fmt, [yr+1 lakeBothLowYrVol(yr-1994,f)]);
+            fprintf(fileID, fmt, [yr lakeBothLowYrVol(yr-1994,f)]);
         end
     end
     
