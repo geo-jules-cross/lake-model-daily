@@ -10,7 +10,7 @@ function [ flags ] = get_input_flags
 %     2 - use interpolated inflow
 %     3 - use measured where available otherwise modeled
 
-  flags.Q_glacier_flag = 3;
+  flags.Q_glacier_flag = 0;
 %
 %     0 - read flux histories from external files or 
 %     1 - generate time series in matlab function get_fluxes.m

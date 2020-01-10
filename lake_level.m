@@ -93,18 +93,21 @@ for l = 1:streamInflowLoop
         % extract types of input from structure "fluxes" by type
         
         % Temp S_offset
-        if b == 3 % Fryxell
-            s_offset = -0.06;
-%             s_offset = -0.06;
-%             s_offset = 0;
+        if b == 1 % Bonney
+            % s_offset = +0.12;
+            s_offset = -0.05;
+            % s_offset = +0.01;
+            % s_offset = 0;
         elseif b == 2 % Hoare
-%             s_offset = +0.09;
-            s_offset = +0.02;
-%             s_offset = 0;
-        elseif b == 1 % Bonney
-%             s_offset = +0.08;
-            s_offset = +0.01;
-%             s_offset = 0;
+            % s_offset = +0.15;
+            s_offset = +0.07;
+            % s_offset = +0.02;
+            % s_offset = 0;
+        elseif b == 3 % Fryxell
+            % s_offset = +0.08;
+            s_offset = -0.05;
+            % s_offset = -0.06;
+            % s_offset = 0;
         end
         
         Q_glacier = fluxes.Q_glacier;

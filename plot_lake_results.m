@@ -155,8 +155,8 @@ lower_confidence_band_y = lake_streams.modeled.LBlow.dh(:);
 upper_confidence_band_y = lake_streams.modeled.LBhigh.dh(:);
 x_plot = [x_data' fliplr(x_data')];
 y_plot = [lower_confidence_band_y' fliplr(upper_confidence_band_y')];
-fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
-plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
+% fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
+% plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
 
 xticks([datetime(1993,1,1):calyears(1):datetime(2014,1,1)]);
 datetick('x','KeepTicks')
@@ -184,15 +184,15 @@ lower_confidence_band_y = lake_streams.modeled.LHlow.dh(:);
 upper_confidence_band_y = lake_streams.modeled.LHhigh.dh(:);
 x_plot = [x_data' fliplr(x_data')];
 y_plot = [lower_confidence_band_y' fliplr(upper_confidence_band_y')];
-fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
-plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
+% fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
+% plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
 
 ylabel('Lake Level Change [m]')
 xticks([datetime(1993,1,1):calyears(1):datetime(2014,1,1)]);
 xtickangle(45)
 datetick('x','KeepTicks')
 xticklabels('')
-ylim([-1 1.5])
+ylim([-1 1])
 yticklabels('auto')
 %legend({'Obs - Surveyed','Obs - Running Mean', 'Simulated'}, 'Location', 'NorthWest');
 text(datetime(2002,1,1), 0.75,'Lake Hoare', 'FontWeight', 'bold', 'FontSize',14);
@@ -214,15 +214,15 @@ lower_confidence_band_y = lake_streams.modeled.LFlow.dh(:);
 upper_confidence_band_y = lake_streams.modeled.LFhigh.dh(:);
 x_plot = [x_data' fliplr(x_data')];
 y_plot = [lower_confidence_band_y' fliplr(upper_confidence_band_y')];
-fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
-plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
+% fill(x_plot, y_plot, [0.5 0.5 0.5], 'FaceAlpha',0.2, 'EdgeColor',[0.5 0.5 0.5], 'EdgeAlpha',0.2)
+% plot(x_data, y_data, '-.k','LineWidth', 1, 'HandleVisibility','off')
 
 xlabel('Date')
 xticks([datetime(1993,1,1):calyears(1):datetime(2014,1,1)]);
 xtickangle(45)
 dateformat = 'mmm yy';
 datetick('x',dateformat, 'KeepTicks')
-ylim([-1 1.5])
+ylim([-1 1])
 yticklabels('auto')
 %legend({'Obs - Surveyed','Obs - Running Mean', 'Simulated'}, 'Location', 'NorthWest');
 text(datetime(2002,1,1), 0.75,'Lake Fryxell', 'FontWeight', 'bold', 'FontSize',14);
