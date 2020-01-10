@@ -8,11 +8,13 @@
 	"buffers":
 	[
 		{
-			"file": "lake_level.m",
+			"contents": "(base) Julian@Julians-MacBook lake-model % ",
 			"settings":
 			{
-				"buffer_size": 11365,
-				"line_ending": "Unix"
+				"buffer_size": 43,
+				"line_ending": "Unix",
+				"name": "Login Shell",
+				"scratch": true
 			}
 		}
 	],
@@ -72,10 +74,25 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/Julian/Desktop/MDV-Lakes-Thesis/lake-model"
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model"
 	],
 	"file_history":
 	[
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_raw_LH_1995.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_raw_LH_1996.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_raw_LB_1996.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_raw_LF_1996.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_raw_LB.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_raw_LF.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_raw_LH.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_lake_LB_1996.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_lake_LF_1996.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_lake_LH_1996.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/lake_level.m",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_lake_LH_1995.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_lake_LB_1995.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/dh_lake_LF_1995.txt",
+		"/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/get_melt.m",
 		"/Users/Julian/Desktop/MDV-Lakes-Thesis/lake-model/plot_measured_inflows.m",
 		"/Users/Julian/Desktop/MDV-Lakes-Thesis/lake-model/DATA/S_data_LB_optimized.txt",
 		"/Users/Julian/Desktop/MDV-Lakes-Thesis/lake-model/DATA/S_data_LH_optimized.txt",
@@ -188,22 +205,7 @@
 		"/Z/Antarctica_Julian/micromet-jmc-working/snowmodel.inc",
 		"/Z/Antarctica_Julian/micromet-jmc-working/micromet_code.f",
 		"/Z/Antarctica_Julian/micromet-jmc-working/outputs_user.f",
-		"/Z/Antarctica_Julian/micromet-jmc-working/readparam_code.f",
-		"/Z/Antarctica_Julian/micromet-jmc-working/preprocess_code.f",
-		"/Z/Antarctica_Julian/micromet-jmc-working/snowmodel_main.f",
-		"/Z/Antarctica_Julian/micromet-jmc-working/preproc_hravg_4_input_files_varz.f",
-		"/Z/Antarctica_Julian/micromet-jmc-working/README.md",
-		"/Z/Antarctica_Julian/micromet-jmc-working/make_hourly_avg/preproc_hravg_4_input_files.f",
-		"/Z/Antarctica_Julian/micromet-jmc-working/snowmodel/code/compile.snowmodel.script",
-		"/Z/Antarctica_Julian/micromet-jmc-working/snowmodel/code/enbal_code.f",
-		"/Z/Antarctica_Julian/micromet-jmc-working/met_station_location_information.txt",
-		"/Z/Antarctica_Julian/READMEs/README_v02.md",
-		"/Z/Antarctica_Julian/micromet-jmc-working/make_hourly_avg/MetDataProcess_15min_to_1hr.m",
-		"/C/Users/jucross/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
-		"/C/Users/jucross/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
-		"/Z/Antarctica_Julian/scripts/compile.icemelt.gfortran.jc.sh",
-		"/Z/Antarctica_Julian/icemelt-jmc-working/icemelt_spatial_jmc.f95",
-		"/Z/Antarctica_Julian/icemelt-jmc-working/run_albedo_cluster.sh"
+		"/Z/Antarctica_Julian/micromet-jmc-working/readparam_code.f"
 	],
 	"find":
 	{
@@ -238,45 +240,94 @@
 	"groups":
 	[
 		{
+			"sheets":
+			[
+			]
+		},
+		{
 			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lake_level.m",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11365,
+						"buffer_size": 43,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								43,
+								43
 							]
 						],
 						"settings":
 						{
-							"git_savvy.repo_path": "/Users/Julian/Desktop/MDV-Lakes-Thesis/lake-model",
-							"syntax": "Packages/Matlab/Matlab.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"__vi_external_disable": true,
+							"auto_complete": false,
+							"auto_complete_commit_on_tab": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+							},
+							"bracket_highlighter.ignore": true,
+							"color_scheme": "Terminus.sublime-color-scheme",
+							"default_dir": "/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/micromet-cross/code",
+							"draw_centered": false,
+							"draw_indent_guides": false,
+							"draw_unicode_white_space": false,
+							"draw_white_space": "none",
+							"gutter": false,
+							"highlight_line": false,
+							"is_widget": true,
+							"scroll_past_end": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"terminus.highlight_counter": 468,
+							"terminus_view": true,
+							"terminus_view.args":
+							{
+								"auto_close": true,
+								"cancellable": false,
+								"cmd":
+								[
+									"/bin/zsh",
+									"-i",
+									"-l"
+								],
+								"config_name": "Login Shell",
+								"cwd": "/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model",
+								"env":
+								{
+									"LANG": "en_US.UTF-8",
+									"TERM": "linux",
+									"TERMINUS_SUBLIME": "1",
+									"TERM_PROGRAM": "Terminus-Sublime"
+								},
+								"panel_name": null,
+								"tag": null,
+								"timeit": false,
+								"title": null
+							},
+							"terminus_view.cancellable": false,
+							"terminus_view.key.ctrl+k": true,
+							"terminus_view.key.ctrl+p": true,
+							"terminus_view.natural_keyboard": true,
+							"terminus_view.panel_name": null,
+							"terminus_view.tag": null,
+							"terminus_view.viewport_y": 0.0,
+							"word_wrap": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 91.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],

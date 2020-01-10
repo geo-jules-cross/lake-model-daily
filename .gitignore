@@ -2,6 +2,9 @@
 
 # exclude these files
 desktop.ini
+.DS_Store
+lake-model.sublime-project
+lake-model.sublime-workspace
 
 # exclude these directories
 data-raw/*
