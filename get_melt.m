@@ -14,7 +14,7 @@ function [] = get_melt
     meltDirectory='/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/data-raw/melt-data';
 
 % Model melt data to use - change this
-    meltData = 'alb-adj.mat';
+    meltData = 'alb-adj-2008.mat';
 
     melt = fullfile(meltDirectory, meltData);
 
@@ -58,12 +58,13 @@ function [] = get_melt
             % seperate inflow.
             % Lake Bonney
 %             Q_subaqueous_LB(1:18,1) = 31400;
-%            Q_subaqueous_LB(1:18,1) = 31500;
-             Q_subaqueous_LB(1:18,1) = 0;
+            Q_subaqueous_LB(1:18,1) = 31500;
+%             Q_subaqueous_LB(1:18,1) = 0;
+            
             % Lake Hoare
 %             Q_subaqueous_LH(1:18,1) = 21700;
-%            Q_subaqueous_LH(1:18,1) = 31800;
-             Q_subaqueous_LH(1:18,1) = 0;
+            Q_subaqueous_LH(1:18,1) = 31800;
+%             Q_subaqueous_LH(1:18,1) = 0;
             
             doB = find(basinkey == basinOrder(b));
             if (basinOrder(b) <= 29)

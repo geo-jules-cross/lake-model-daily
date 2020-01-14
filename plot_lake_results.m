@@ -192,10 +192,10 @@ xticks([datetime(1993,1,1):calyears(1):datetime(2014,1,1)]);
 xtickangle(45)
 datetick('x','KeepTicks')
 xticklabels('')
-ylim([-1 1])
+ylim([-0.5 1.5])
 yticklabels('auto')
 %legend({'Obs - Surveyed','Obs - Running Mean', 'Simulated'}, 'Location', 'NorthWest');
-text(datetime(2002,1,1), 0.75,'Lake Hoare', 'FontWeight', 'bold', 'FontSize',14);
+text(datetime(2002,1,1), 1.25,'Lake Hoare', 'FontWeight', 'bold', 'FontSize',14);
 
 % Lake Fryxell
 axes(ha(3)); hold all; grid on;
@@ -222,10 +222,10 @@ xticks([datetime(1993,1,1):calyears(1):datetime(2014,1,1)]);
 xtickangle(45)
 dateformat = 'mmm yy';
 datetick('x',dateformat, 'KeepTicks')
-ylim([-1 1])
+ylim([-0.5 1.5])
 yticklabels('auto')
 %legend({'Obs - Surveyed','Obs - Running Mean', 'Simulated'}, 'Location', 'NorthWest');
-text(datetime(2002,1,1), 0.75,'Lake Fryxell', 'FontWeight', 'bold', 'FontSize',14);
+text(datetime(2002,1,1), 1.25,'Lake Fryxell', 'FontWeight', 'bold', 'FontSize',14);
 
 set(ha(1:3),'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'LineWidth', 1.25, 'FontSize', 14, 'GridColor', 'k', 'box', 'on');
 set(ha(1:3),'Xlim', [datetime(1993,1,1) datetime(2014,1,1)]);
