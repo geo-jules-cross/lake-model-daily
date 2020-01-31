@@ -25,8 +25,7 @@ function [fluxes] = get_fluxes(times, flags)
 %
 %  e.g. inflow from melt streams coming off ice dam
 %
-    tester = flags.Q_glacier_flag;
-    if( tester == 0 )
+
         %  read in GQ_direct_data from a file
         % -----------------------------------
         basin = flags.basin;  % check lake basin
@@ -45,84 +44,10 @@ function [fluxes] = get_fluxes(times, flags)
             t_data         = Q_glacier_LF(:,1);
             Q_glacier_data = Q_glacier_LF(:,2);
         end
-        %
-    elseif ( tester == 1)
-        basin = flags.basin;  % check lake basin
-        if( basin == 1) 
-            load DATA/Q_streams_LB.txt;
-            t_data         = Q_streams_LB(:,1);
-            Q_glacier_data = Q_streams_LB(:,2);
-            %
-        elseif( basin == 2)
-            load DATA/Q_streams_LH.txt;
-            t_data         = Q_streams_LH(:,1);
-            Q_glacier_data = Q_streams_LH(:,2);
-            %
-        elseif( basin == 3)
-            load DATA/Q_streams_LF.txt;
-            t_data         = Q_streams_LF(:,1);
-            Q_glacier_data = Q_streams_LF(:,2);
-        end
-        %
-    elseif ( tester == 3)
-        basin = flags.basin;  % check lake basin
-        if( basin == 1) 
-            load DATA/Q_combo_LB.txt;
-            t_data         = Q_combo_LB(:,1);
-            Q_glacier_data = Q_combo_LB(:,2);
-            %
-        elseif( basin == 2)
-            load DATA/Q_combo_LH.txt;
-            t_data         = Q_combo_LH(:,1);
-            Q_glacier_data = Q_combo_LH(:,2);
-            %
-        elseif( basin == 3)
-            load DATA/Q_combo_LF.txt;
-            t_data         = Q_combo_LF(:,1);
-            Q_glacier_data = Q_combo_LF(:,2);
-        end
-        %
-        %  or set up Q_glacier_data here
-        % ------------------------------
-    else
-         t_data = [t_vec(1) t_vec(end) ];
-        Q_glacier_data = [0 0];%[ 3.5*1.82e7 3.5*1.82e7 ];% [ 1e7 1e7 ];
-    end
     
 %
 % interpolate at times needed for evolution calculation
     fluxes.Q_glacier = interp1(t_data, Q_glacier_data, t_vec );
-
-%
-%
-%---------------------------------------------------------
-% read in, or set up time series for Precipitation P here
-%---------------------------------------------------------
-%
-    tester = flags.P_flag;
-%
-    if( tester == 0 )
-%
-%  read in precipitation history on lakes from a file
-% ----------------------------------------------------
-     load DATA/P_data.txt;
-  %
-     t_data = P_data(:,1);
-     P_data = P_data(:,2);
-  %
-    else
-%
-%  or set it up here
-% ---------------
-     t_data = [t_vec(1) t_vec(end) ];
-     P_data = [0 0]; %[ 0.05 0.05 ];
-%
-    end  %  Precipitation: if( tester == 0 )
-%
-% interpolate at times needed for evolution calculation
-    fluxes.P = interp1(t_data, P_data, t_vec );
-%
-%
 %
 %-------------------------------------------------------------------
 % read in, or set up time series for S lake-surface sublimation here
@@ -134,37 +59,23 @@ function [fluxes] = get_fluxes(times, flags)
         %  read in sublimation history from a file
         % ----------------------------------------
         basin = flags.basin;  % check lake basin
-%         if( basin == 1)
-%              load DATA/S_data_LB_dugan.txt;
-%              t_data = S_data_LB_dugan(:,1);
-%              S_data = S_data_LB_dugan(:,2);
-%              %
-%         elseif( basin == 2)
-%              load DATA/S_data_LH_dugan.txt;
-%              t_data = S_data_LH_dugan(:,1);
-%              S_data = S_data_LH_dugan(:,2);
-%              %
-%         elseif( basin == 3)
-%              load DATA/S_data_LF_dugan.txt;
-%              t_data = S_data_LF_dugan(:,1);
-%              S_data = S_data_LF_dugan(:,2);
-%              %
-%         end
-  %
         if( basin == 1)
-             load DATA/S_data_LB_optimized.txt;
-             t_data = S_data_LB_optimized(:,1);
-             S_data = S_data_LB_optimized(:,2);
+             load DATA/S_data_LB.txt;
+             t_data = S_data_LB(:,1);
+             S_data = S_data_LB(:,2);
              %
         elseif( basin == 2)
-             load DATA/S_data_LH_optimized.txt;
-             t_data = S_data_LH_optimized(:,1);
-             S_data = S_data_LH_optimized(:,2);
+             load DATA/S_data_LH.txt;
+             t_data = S_data_LH(:,1);
+             S_data = S_data_LH(:,2);
              %
         elseif( basin == 3)
-             load DATA/S_data_LF_optimized.txt;
-             t_data = S_data_LF_optimized(:,1);
-             S_data = S_data_LF_optimized(:,2);
+%              load DATA/S_data_LF.txt;
+             load DATA/S_data_LF_snow.txt;
+%              t_data = S_data_LF(:,1);
+             t_data = S_data_LF_snow(:,1);
+%              S_data = S_data_LF(:,2);
+             S_data = S_data_LF_snow(:,2);
              %
         end
   %
@@ -179,38 +90,7 @@ function [fluxes] = get_fluxes(times, flags)
 %
 % interpolate at times needed for evolution calculation
     fluxes.S = interp1(t_data, S_data, t_vec );
-%
-%
-%
-%-------------------------------------------------------------------
-% read in, or set up time series for E lake-surface Evaporation here
-%-------------------------------------------------------------------
-%
-    tester = flags.E_flag;
-%
-    if( tester == 0 )
-%
-%  read in evaporation history from a file
-% -----------------------------------------
-     load DATA/E_data.txt;
-  %
-     t_data = E_data(:,1);
-     E_data = E_data(:,2);
-  %
-    else
-%
-%  or set up here
-% ---------------
-     t_data = [t_vec(1) t_vec(end) ];
-     E_data = [ 0 0 ];
-  %
-    end  %  Evaporation: if( tester == 0 )
-%
-% interpolate at times needed for evolution calculation
-    fluxes.E = interp1(t_data, E_data, t_vec );
-%
-%
-%
+
 end   % function
 %
 

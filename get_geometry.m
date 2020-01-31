@@ -16,7 +16,7 @@ function [geometry] = get_geometry(flags)
 
 %
 % set convergence criterion
-    h_cutoff = 0.001;   % meters between successive iterations
+    h_cutoff = 0.0001;   % meters between successive iterations
     it_max   = 10;      % maximum allowable number of iterations
 %
 %
@@ -36,8 +36,7 @@ function [geometry] = get_geometry(flags)
         A_data = A_data_LB(:,2);
         clear A_data_LB;
         % set initial lake level
-%         h_0 = 62.29; % 1/23/1995
-        h_0 = 62.30; % 1/24/1997
+        h_0 = 62.29; % 1/23/1995
         %
       elseif( basin == 2) 
         load DATA/A_data_LH.txt;
@@ -45,8 +44,7 @@ function [geometry] = get_geometry(flags)
         A_data = A_data_LH(:,2);
         clear A_data_LH;
         % set initial lake level
-%         h_0 = 74.04; % 1/1/1995
-        h_0 = 73.92;
+        h_0 = 74.04; % 1/1/1995
         %
       elseif( basin == 3) 
         load DATA/A_data_LF.txt;
@@ -54,8 +52,7 @@ function [geometry] = get_geometry(flags)
         A_data = A_data_LF(:,2);
         clear A_data_LF;
         % set initial lake level
-%         h_0 = 17.41; % 1/23/1995
-        h_0 = 17.28; % 1/24/1995
+        h_0 = 17.41; % 1/23/1995
         %
     else
 %
@@ -71,7 +68,7 @@ function [geometry] = get_geometry(flags)
 % set up detailed elevation grid h_nodes at spacing dh_nodes
 %     for interpolation table [h A V ]
 %
-    dh_nodes  = 1;    % meters
+    dh_nodes  = 0.0001;    % meters
     h_nodes   = h_data(1): dh_nodes: h_data(end);
     N_h_nodes = length(h_nodes);
 %

@@ -32,7 +32,7 @@ function [t_analytical, h_real, h_ss] = t_anlyt( times, geometry, fluxes )
     h_ss         = nan;
 %
 % eps_lin is allowable tolerance on hitting q=1
-    eps_lin = 1e-6;
+    eps_lin = 1e-10;
 %
 %  extract parameters and vectors from structures "times", "geometry",
 %   and "fluxes"
@@ -44,9 +44,7 @@ function [t_analytical, h_real, h_ss] = t_anlyt( times, geometry, fluxes )
     h_nodes = geometry.h_nodes;
  %
     Q_glacier = fluxes.Q_glacier;
-    P         = fluxes.P;
     S         = fluxes.S;
-    E         = fluxes.E;
 %
 %
 % form dA/dh at midpoints
@@ -73,7 +71,7 @@ function [t_analytical, h_real, h_ss] = t_anlyt( times, geometry, fluxes )
       Q_total = Q_glacier;
   %
   % calculate C (trusting that all climate series are constant in time)
-      C = P - S - E;
+      C = - S;
   %
   %
      if( ( std(Q_total) /mean(abs(Q_total))) < eps_lin ...
