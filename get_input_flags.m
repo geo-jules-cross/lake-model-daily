@@ -24,8 +24,6 @@ function [ flags ] = get_input_flags
 %     3 - fryxell
 %
 	flags.basin			 	= 0;	 % Basin to run 
-
-%
 %
 %  flags are returned in a structure called "flags"
 %

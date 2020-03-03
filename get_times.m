@@ -10,9 +10,15 @@ function [times] = get_times
 % nsteps  = number of time intervals between t_0 and t_end
 %
 
+    % 1995 start
     t_0     = 1;
     t_end   = 6425;
     n_steps = 6424;
+    
+    % 1996 start
+%     t_0     = 365;
+%     t_end   = 6425;
+%     n_steps = 6060;
 
 %
 % set up time step and vector of times for calculations
