@@ -11,14 +11,14 @@ function [times] = get_times
 %
 
     % 1995 start
-    t_0     = 1;
-    t_end   = 6425;
-    n_steps = 6424;
+%     t_0     = 1;
+%     t_end   = 6425;
+%     n_steps = 6424;
     
     % 1996 start
-%     t_0     = 365;
-%     t_end   = 6425;
-%     n_steps = 6060;
+    t_0     = 365;
+    t_end   = 6425;
+    n_steps = 6060;
 
 %
 % set up time step and vector of times for calculations

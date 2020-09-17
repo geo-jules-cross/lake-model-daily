@@ -173,11 +173,11 @@ for b = 1:basinloop
         % in cubic meters per day
         
         if b == 1 % Bonney
-            Q_offset = 0;
-            % Q_offset = 86;          % subaqueous flux
+%             Q_offset = 0;
+            Q_offset = 86;          % subaqueous flux
         elseif b == 2 % Hoare
-            Q_offset = 0;
-            % Q_offset = 87;          % subaqueous flux
+%             Q_offset = 0;
+            Q_offset = 87;          % subaqueous flux
             % Q_offset = -200;        % groundwater flux
             % Q_offset = 87-100;      % both flux
         elseif b == 3 % Fryxell

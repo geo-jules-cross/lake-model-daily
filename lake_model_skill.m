@@ -5,14 +5,14 @@ clear;
 load('lake.mat')
 
 % 1995 start
-years2run = (1995:2012);
-ndays= datenum([years2run(end)+1 1 31]) - datenum([1995 6 30]);
-startday = 728840;
+% years2run = (1995:2012);
+% ndays= datenum([years2run(end)+1 1 31]) - datenum([1995 6 30]);
+% startday = 728840;
 
 % % 1996 start
-% years2run = (1996:2012);
-% ndays= datenum([years2run(end)+1 1 31]) - datenum([1996 6 30]);
-% startday = 729206;
+years2run = (1996:2012);
+ndays= datenum([years2run(end)+1 1 31]) - datenum([1996 6 30]);
+startday = 729206;
 
 %% Accumulate obs and mod arrays for days with obs
 fprintf('Comparing observed and modeled for each lakes across all years...\n');
