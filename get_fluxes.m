@@ -34,35 +34,16 @@ function [fluxes] = get_fluxes(times, flags)
             t_data         = Q_glacier_LB(:,1);
             Q_glacier_data = Q_glacier_LB(:,2);
             %
-%             load DATA/Q_glacier_LB_sensitivity.txt;
-%             t_data         = Q_glacier_LB_sensitivity(:,1);
-%             Q_glacier_data = Q_glacier_LB_sensitivity(:,5);
-            %
         elseif( basin == 2)
             load DATA/Q_glacier_LH.txt;
             t_data         = Q_glacier_LH(:,1);
             Q_glacier_data = Q_glacier_LH(:,2);
-            %
-%             load DATA/Q_glacier_LH_sensitivity.txt;
-%             t_data         = Q_glacier_LH_sensitivity(:,1);
-%             Q_glacier_data = Q_glacier_LH_sensitivity(:,5);
             %
         elseif( basin == 3)
             load DATA/Q_glacier_LF.txt;
             t_data         = Q_glacier_LF(:,1);
             Q_glacier_data = Q_glacier_LF(:,2);
             %
-%             load DATA/Q_glacier_LF_sensitivity.txt;
-%             t_data         = Q_glacier_LF_sensitivity(:,1);
-%             Q_glacier_data = Q_glacier_LF_sensitivity(:,5);
-%             
-%             load DATA/Q_glacier_LF_test.txt;
-%             t_data         = Q_glacier_LF_test(:,1);
-%             Q_glacier_data = Q_glacier_LF_test(:,2);
-
-%             load DATA/Q_glacier_LF_upland.txt;
-%             t_data         = Q_glacier_LF_upland(:,1);
-%             Q_glacier_data = Q_glacier_LF_upland(:,2);
         end
     
 %
@@ -84,47 +65,15 @@ function [fluxes] = get_fluxes(times, flags)
             t_data = S_data_LB(:,1);
             S_data = S_data_LB(:,2);
             %
-%             load DATA/S_data_LB_sensitivity.txt;
-%             t_data = S_data_LB_sensitivity(:,1);
-%             S_data = S_data_LB_sensitivity(:,5);
-            %
         elseif( basin == 2)
             load DATA/S_data_LH.txt;
             t_data = S_data_LH(:,1);
             S_data = S_data_LH(:,2);
-            %
-%             load DATA/S_data_LH_sensitivity.txt;
-%             t_data = S_data_LH_sensitivity(:,1);
-%             S_data = S_data_LH_sensitivity(:,5);
-            %
-%              load DATA/S_data_LH_subsurface.txt;
-%              t_data = S_data_LH_subsurface(:,1);
-%              S_data = S_data_LH_subsurface(:,2);
              %
         elseif( basin == 3)
-%              load DATA/S_data_LF.txt;
-%              t_data = S_data_LF(:,1);
-%              S_data = S_data_LF(:,2);
-             %
-             load DATA/S_data_LF_new.txt;
-             t_data = S_data_LF_new(:,1);
-             S_data = S_data_LF_new(:,2);
-             %
-%              load DATA/S_data_LF_sensitivity.txt;
-%              t_data = S_data_LF_sensitivity(:,1);
-%              S_data = S_data_LF_sensitivity(:,5);
-
-%              load DATA/S_data_LF_snow.txt;
-%              t_data = S_data_LF_snow(:,1);
-%              S_data = S_data_LF_snow(:,2);
-            
-%              load DATA/S_data_LF_newsnow.txt;
-%              t_data = S_data_LF_newsnow(:,1);
-%              S_data = S_data_LF_newsnow(:,2);
- 
-%              load DATA/S_data_LF_subsurface.txt;
-%              t_data = S_data_LF_subsurface(:,1);
-%              S_data = S_data_LF_subsurface(:,2);
+             load DATA/S_data_LF.txt;
+             t_data = S_data_LF(:,1);
+             S_data = S_data_LF(:,2);
              %
         end
   %

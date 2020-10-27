@@ -1,4 +1,4 @@
-  % --------------------------------------------------------
+% --------------------------------------------------------
 % Adapted from Obryk et al 2017
 % By Julian Cross
 % Code originally by E. Waddington
@@ -46,6 +46,13 @@ t_vec   = times.t_vec;
 % or generating simple time series in the code
 
 flags = get_input_flags;
+
+if(flags.melt == 1)
+  get_melt;
+end
+if(flags.sublimation == 1)
+  get_sublimation;
+end
 
 % Start loop through selected basins (set in get_input_flags)
 switch flags.basin

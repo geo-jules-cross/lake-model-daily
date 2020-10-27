@@ -8,14 +8,24 @@ function [ flags ] = get_input_flags
 %     0 - read flux histories from external files or 
 %     1 - generate time series in matlab function get_fluxes.m
 %
-  flags.P_flag         	= 0;    %  Precipitation
-  flags.S_flag         	= 0;    %  Sublimation
-  flags.E_flag         	= 0;    %  Evaporation
+    flags.P_flag         	= 0;    %  Precipitation
+    flags.S_flag         	= 0;    %  Sublimation
+    flags.E_flag         	= 0;    %  Evaporation
 %
 %     0 - read hypsometry data from external file or 
 %     1 - generate hypsometry data in matlab function get_geometry.m
 %
-  flags.A_h_flag       	= 0;    %  Hypsometry
+    flags.A_h_flag       	= 0;    %  Hypsometry
+%
+%     0 - no
+%     1 - yes
+    
+    flags.melt              = 1;    % Rebuild melt
+%
+%     0 - no
+%     1 - yes
+    
+    flags.sublimation		= 1;	% Rebuild sublimation
 %
 %	Determine which basin to run
 %     0 - all
@@ -23,7 +33,7 @@ function [ flags ] = get_input_flags
 %     2 - hoare
 %     3 - fryxell
 %
-	flags.basin			 	= 0;	 % Basin to run 
+    flags.basin			 	= 0;	 % Basin to run 
 %
 %  flags are returned in a structure called "flags"
 %
