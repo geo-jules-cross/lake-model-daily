@@ -12,10 +12,11 @@ function [] = get_sublimation
     years(:,1)= 1995:2012;
     
     % Adjustments
-%     Temp_adj = -4.0;
-    Temp_adj = 0;
-    
-    Wind_adj = 0;
+    Temp_adj = 0.0;
+%     Temp_adj = 0.0;
+
+%     Wind_adj = 0.8;
+    Wind_adj = 1.0;
     
     Fryxell_albedo = 0;
     
@@ -62,7 +63,10 @@ function [] = get_sublimation
     Qe       = zeros(1,nrows);
     water_mm = zeros(1,nrows);
     water_daily =zeros(length(Date),2);
+    evap_mm = zeros(1,nrows);
+    evap_daily =zeros(length(Date),2);
     sublimation = zeros(6425,3);
+    evaporation = zeros(6425,3);
 
     for l = 1:3 % lake counter
         for season = 1:2 % 1 = winter; 2 = summer
@@ -91,7 +95,10 @@ function [] = get_sublimation
             TairC    = MicroMet(:,1);       %  Tair 1
             rh       = MicroMet(:,2);       %  rh 2
             windspd  = MicroMet(:,3);       %  windsp 3    
+            
+            % Make met adjustments
             Tair(:)  = TairC(:) + Tf + Temp_adj;       % Convert from C to K
+            windspd(:) = windspd(:) * Wind_adj;
             
             % Look up correct surface roughness length (m)
             if l == 1        % Bonney
@@ -115,7 +122,11 @@ function [] = get_sublimation
             end
 
             % Start calcualting subliamtion at each time-step
-            for itime = 1:nrows;
+            for itime = 1:nrows
+                
+                if windspd(itime) < 1
+                    windspd(itime) = 1;
+                end  
                 
                 % Coeffs for saturation vapor pressure over water (Buck 1981)
                 % AGF Note: temperatures for Buck's equations are in deg C,
@@ -190,6 +201,32 @@ function [] = get_sublimation
                         water_mm(itime) = NaN;
                     end
                 end
+                
+                % Evaporation from ice-free lake
+                A = 6.1121 * 100;
+                B = 17.502;
+                C = 240.97;
+                xLatent = xLv;           % energy to evaporate water
+
+                % Compute atmospheric vapor pressure from relative humidity data
+                ea = rh(itime)/100.0 * A * exp((B * (Tair(itime) - Tf))/(C + (Tair(itime) - Tf)));
+
+                ro_air = Pa(floor(itime/24)+1) * Ma/(R * Tair(itime)) * (1 + (epsilon - 1) * (ea/Pa(floor(itime/24)+1)));
+
+                % Compute the water vapor pressure at the surface assuming surface
+                % is at freezing temp
+                es0 = A * exp((B * (Tf - Tf))/(C + (Tf - Tf)));
+                
+                % Compute the latent heat flux
+                if ~isnan(Pa(floor(itime/24)+1)) == 1
+                    Qevap(itime) = ro_air * xLv * De_h * stability * (0.622/Pa(floor(itime/24)+1) * (ea - es0));
+                    evap_mm(itime) = (-1*Qevap(itime)/(ro_water*xLatent)) * 3600 * 1000;   % convert to mm water
+
+                else
+                    Qevap(itime) = NaN;
+                    evap_mm(itime) = NaN;
+                end
+                
             end
         
             % Calculate daily totals
@@ -205,6 +242,7 @@ function [] = get_sublimation
                     f = 24*d;
                 end
                 water_daily(d,season) = sum(water_mm(1,g:f))/1000;
+                evap_daily(d,season) = sum(evap_mm(1,g:f))/1000;
             end % or d = 1:length(Date)
         
         end % for season = 1:2
@@ -220,6 +258,18 @@ function [] = get_sublimation
                 sublimation(day,l) = water_daily(day,1);
             end
         end
+        
+        % Calculate annual totals with summer open water evaporation
+        for day = 1:length(Date)
+            if day < 213
+                continue
+            elseif month(Date(day)) < 2 || month(Date(day)) > 11
+                evaporation(day,l) = evap_daily(day,2);
+            else
+                evaporation(day,l) = water_daily(day,1);
+            end
+        end
+        
     end % for l = 1:3
 
     % Data output file
@@ -242,6 +292,28 @@ function [] = get_sublimation
                 continue
             else
                 fprintf(fileID, fmt, [c sublimation(day,f)]);
+                c = c + 1;
+            end
+        end
+        fmt = '%d \t \t %f';
+    end
+    
+    % Output file
+    fileList = {'DATA/ES_data_LB.txt', 'DATA/ES_data_LH.txt', 'DATA/ES_data_LF.txt'};
+    
+    % Format and update input data files
+    for f=1:length(fileList)
+        file = fileList{f};
+        fileID = fopen(file,'w');
+        fmt = '%d \t \t %f \n';
+        fprintf(fileID, '%s \n', '% load E-S data (latent loss from lakes)');
+        fprintf(fileID, '%s \n', '%  time (day)     ES (m day^-1) ');
+        c = 1;
+        for day = 1:length(Date)
+            if day < 213
+                continue
+            else
+                fprintf(fileID, fmt, [c evaporation(day,f)]);
                 c = c + 1;
             end
         end

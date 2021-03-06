@@ -65,16 +65,25 @@ function [fluxes] = get_fluxes(times, flags)
             t_data = S_data_LB(:,1);
             S_data = S_data_LB(:,2);
             %
+%             load DATA/ES_data_LB.txt;
+%             t_data = ES_data_LB(:,1);
+%             S_data = ES_data_LB(:,2);
         elseif( basin == 2)
             load DATA/S_data_LH.txt;
             t_data = S_data_LH(:,1);
             S_data = S_data_LH(:,2);
-             %
+            %
+%             load DATA/ES_data_LH.txt;
+%             t_data = ES_data_LH(:,1);
+%             S_data = ES_data_LH(:,2);
         elseif( basin == 3)
-             load DATA/S_data_LF.txt;
-             t_data = S_data_LF(:,1);
-             S_data = S_data_LF(:,2);
-             %
+            load DATA/S_data_LF.txt;
+            t_data = S_data_LF(:,1);
+            S_data = S_data_LF(:,2);
+            %
+%             load DATA/ES_data_LF.txt;
+%             t_data = ES_data_LF(:,1);
+%             S_data = ES_data_LF(:,2);
         end
   %
     else

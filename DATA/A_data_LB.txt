@@ -1,5 +1,5 @@
 %  hypsometry data
-%  created by Maciek Obryk
+%  created by Julian Cross and Maciek Obryk
 %  orthometric heights
 %  based on local datum (WGS84 -56.3 m)
 %  Depth h (m)    Area A (m^2)

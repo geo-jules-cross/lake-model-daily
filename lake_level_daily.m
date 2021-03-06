@@ -176,28 +176,9 @@ for b = 1:basinloop
         inflows_old = inflows_new;
         climate_old = climate_new;
         
-        % offsets for groundwater and subaqueous fluxes
-        % in cubic meters per day
-        
-        if b == 1 % Bonney
-%             Q_offset = 0;
-            Q_offset = 86;          % subaqueous flux
-        elseif b == 2 % Hoare
-%             Q_offset = 0;
-            Q_offset = 87;          % subaqueous flux
-            % Q_offset = -200;        % groundwater flux
-            % Q_offset = 87-100;      % both flux
-        elseif b == 3 % Fryxell
-            % Q_offset = 0;
-            Q_offset = 1200;        % snow meltwater flux
-            % Q_offset = 200;         % groundwater flux
-            % Q_offset = 1000 + 100;  % both flux
-        end
-        
-        
         % get correct inflows and climate for time t+dt
         % Q_offset can be an inflow or an outflow
-        inflows_new = Q_glacier(j) + Q_offset;
+        inflows_new = Q_glacier(j);
         climate_new = -S(j);
         
         % inner iterative loop on A_new (nonlinearity)
@@ -257,7 +238,8 @@ for b = 1:basinloop
     lake.basin(b).V_nodes(:) = V_nodes;
     
     lake.Q_glacier(b,:) = Q_glacier;
-    lake.h.glacier(b,:) = h;
+    %lake.h.glacier(b,:) = h;
+    lake.h = h;
     lake.A(b,:) = A;
     lake.V(b,:) = V;
     lake.dV(b,:)= deltaV;

@@ -90,43 +90,43 @@ for d = 1:6061
 end
 %% Plot lake level change - All one plot
 
-figure(1); clf; hold all; box on; grid off;
-set(gcf,'units','normalized','outerposition',[0.1 0.3 0.6 0.6])
-
-c = [0.5 0.5 0.5];
-
-set(gca,'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'FontSize',14,'LineWidth', 1.5, 'GridColor', 'k');
-
-% Measured Daily
-plot(datetime(lake.measured.LB.date(:),'ConvertFrom', 'DateNum'), lake.measured.LB.dh(:), ':','Color',c,'LineWidth', 2)
-% plot(datetime(lake.measured.LH.date(:),'ConvertFrom', 'DateNum'), lake.measured.LH.dh(:), ':','Color','r','LineWidth', 2)
-% plot(datetime(lake.measured.LF.date(:),'ConvertFrom', 'DateNum'), lake.measured.LF.dh(:), ':','Color','b','LineWidth', 2)
-
-% Modeled
-plot(datetime(lake.modeled.LB.date(:),'ConvertFrom', 'DateNum'), lake.modeled.LB.dh(:), '-.k','LineWidth', 1.5)
-% plot(datetime(lake.modeled.LH.date(:),'ConvertFrom', 'DateNum'), lake.modeled.LH.dh(:), '-.r','LineWidth', 1.5)
-% plot(datetime(lake.modeled.LF.date(:),'ConvertFrom', 'DateNum'), lake.modeled.LF.dh(:), '-.b','LineWidth', 1.5)
-
-ylabel('Lake Level Change [m]')
-ylim([-1 4.5])
-
-line([datetime(1990,1,1), datetime(2020,1,1)],[0,0], 'Color','k', 'LineWidth', 1)
-% xlabel('Year')
-% set(gca,'XTick', [datetime(1990,1,1):calyears(1):datetime(2020,1,1)])
-xlabel('Date')
-set(gca,'XTick', [datetime(1990,1,1):calmonths(1):datetime(2020,1,1)])
-dateformat = 'mmm yy';
-datetick('x',dateformat, 'KeepTicks')
-xlim([datetime(1994,1,1) datetime(2020,1,1)])
-xtickangle(45)
-
-% legend({'Bonney', 'Hoare', 'Fryxell'});
-
-legend({'Bonney - observed',...
-     'Bonney - simulated'});
- 
-%  legend({'Hoare - observed', 'Fryxell',...
-%      'Hoare - simulated', 'Fryxell'});
+% figure(1); clf; hold all; box on; grid off;
+% set(gcf,'units','normalized','outerposition',[0.1 0.3 0.6 0.6])
+% 
+% c = [0.5 0.5 0.5];
+% 
+% set(gca,'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'FontSize',14,'LineWidth', 1.5, 'GridColor', 'k');
+% 
+% % Measured Daily
+% plot(datetime(lake.measured.LB.date(:),'ConvertFrom', 'DateNum'), lake.measured.LB.dh(:), ':','Color',c,'LineWidth', 2)
+% % plot(datetime(lake.measured.LH.date(:),'ConvertFrom', 'DateNum'), lake.measured.LH.dh(:), ':','Color','r','LineWidth', 2)
+% % plot(datetime(lake.measured.LF.date(:),'ConvertFrom', 'DateNum'), lake.measured.LF.dh(:), ':','Color','b','LineWidth', 2)
+% 
+% % Modeled
+% plot(datetime(lake.modeled.LB.date(:),'ConvertFrom', 'DateNum'), lake.modeled.LB.dh(:), '-.k','LineWidth', 1.5)
+% % plot(datetime(lake.modeled.LH.date(:),'ConvertFrom', 'DateNum'), lake.modeled.LH.dh(:), '-.r','LineWidth', 1.5)
+% % plot(datetime(lake.modeled.LF.date(:),'ConvertFrom', 'DateNum'), lake.modeled.LF.dh(:), '-.b','LineWidth', 1.5)
+% 
+% ylabel('Lake Level Change [m]')
+% ylim([-1 4.5])
+% 
+% line([datetime(1990,1,1), datetime(2020,1,1)],[0,0], 'Color','k', 'LineWidth', 1)
+% % xlabel('Year')
+% % set(gca,'XTick', [datetime(1990,1,1):calyears(1):datetime(2020,1,1)])
+% xlabel('Date')
+% set(gca,'XTick', [datetime(1990,1,1):calmonths(1):datetime(2020,1,1)])
+% dateformat = 'mmm yy';
+% datetick('x',dateformat, 'KeepTicks')
+% xlim([datetime(1994,1,1) datetime(2020,1,1)])
+% xtickangle(45)
+% 
+% % legend({'Bonney', 'Hoare', 'Fryxell'});
+% 
+% legend({'Bonney - observed',...
+%      'Bonney - simulated'});
+%  
+% %  legend({'Hoare - observed', 'Fryxell',...
+% %      'Hoare - simulated', 'Fryxell'});
 
 %% Plot lake level change - Seperate plots
 
@@ -278,22 +278,25 @@ inputTimes = (yearStart: 1.0/24.0: yearEnd).';
 mmIndex = ((start*24):(stop*24)).';
 
 % Lake-stage
-axes(ha(1)); hold all; grid off;
+axes(ha(1)); hold all; grid off; box on;
 yyaxis left
 % Measured
 plot(datetime(dt_obs(:),'ConvertFrom', 'DateNum'), dh_obs(:), ':','Color',c,'LineWidth', 2)
 % Modeled
-plot(datetime(dt_sim(:),'ConvertFrom', 'DateNum'), dh_sim(:)-0.12, '-.k','LineWidth', 1.5)
+plot(datetime(dt_sim(:),'ConvertFrom', 'DateNum'), dh_sim(:)-0.089, '-.k','LineWidth', 1.5)
 yticklabels('auto')
-%ylim([1 1.8])
-% Air Temperature
 yyaxis right
-plot(datetime(inputTimes,'ConvertFrom', 'DateNum'), movmean(micromet(mmIndex(1):mmIndex(end),1),24), '-k');
+% Air Temperature
+plot(datetime(inputTimes,'ConvertFrom', 'DateNum'), movmean(micromet(mmIndex(1):mmIndex(end),1),24), '--k');
+% Wind-speed
+plot(datetime(inputTimes,'ConvertFrom', 'DateNum'), movmean(micromet(mmIndex(1):mmIndex(end),3),24), '-k');
+ylim([-60 40])
 yticklabels('auto')
-ylim([-50 10])
+
 ax = gca;
 ax.YAxis(1).Color = 'k';
 ax.YAxis(2).Color = 'k';
+ax.XAxis.Visible = 'off';
 
 xlim([datetime(year-1,4,1) datetime(year,4,1)])
 datetick('x','KeepTicks')
@@ -302,18 +305,19 @@ xticklabels('')
 %legend({'Obs', 'Sim'}, 'Location', 'NorthWest', 'box', 'off');
 
 % Inflows
-axes(ha(2)); hold all; grid off;
+axes(ha(2)); hold all; grid off; box on;
 % Modeled
 yyaxis left
-area(datetime(dt_sim(:),'ConvertFrom', 'DateNum'), I_sim(:)/1000000, 'FaceColor', c1, 'EdgeColor', c1)
+area(datetime(dt_sim(:),'ConvertFrom', 'DateNum'), I_sim(:)/1000000, 'FaceColor', c1, 'EdgeColor', c1);
 yticklabels('auto')
 % Cummulative sum
 yyaxis right
-plot(datetime(dt_sim(:),'ConvertFrom', 'DateNum'), cumsum(I_sim(:))/1000000, '--k','LineWidth', 1.5)
+plot(datetime(dt_sim(:),'ConvertFrom', 'DateNum'), cumsum(I_sim(:))/1000000, '--k','LineWidth', 1.5);
 yticklabels('auto')
 ax = gca;
 ax.YAxis(1).Color = 'k';
 ax.YAxis(2).Color = 'k';
+ax.XAxis.Visible = 'off';
 
 xlim([datetime(year-1,4,1) datetime(year,4,1)])
 datetick('x','KeepTicks')
@@ -322,10 +326,9 @@ xticklabels('')
 %legend({'Daily', 'Cumulative'}, 'Location', 'NorthWest', 'box', 'off');
 
 % Outflows
-axes(ha(3)); hold all; grid off;
-% Modeled
+axes(ha(3)); hold all; grid off; box on;
 yyaxis left
-area(datetime(dt_sim(:),'ConvertFrom', 'DateNum'), O_sim(:), 'FaceColor', c1, 'EdgeColor', c1)
+a1 = area(datetime(dt_sim(:),'ConvertFrom', 'DateNum'), O_sim(:), 'FaceColor', c1, 'EdgeColor', c1);
 yticklabels('auto')
 % Cummulative sum
 yyaxis right
@@ -343,4 +346,4 @@ datetick('x',dateformat, 'KeepTicks')
 
 %legend({'Daily', 'Cumulative'}, 'Location', 'NorthWest', 'box', 'off');
 
-set(ha(1:3),'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'LineWidth', 1.25, 'FontSize', 14, 'GridColor', 'k', 'box', 'on');
+set(ha(1:3),'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'LineWidth', 1.25, 'FontSize', 14, 'GridColor', 'k');

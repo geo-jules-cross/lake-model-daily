@@ -20,8 +20,9 @@
 % Output Directory
     outDirectory='/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/melt-model/processed-data/';
 
-    runDate='20200225_BASINS_M4/';
+    runDate='20210207_BASINS_M4/';
     runname= 'basin-multi-adj-ekh-alb-2007.mat';
+    
     path2output=[outDirectory runDate runname];
     melt= fullfile(path2output);
 
@@ -49,14 +50,11 @@
     44,45,50,61,62,...
     63,64,65,66,71,...
     72,74,81,82];
-    
-% Stream Basin ID
-    streamOrder=[62 41 45 74 66 50 43 65 34 61 29 71 21 10 63];
 
 % Populate lake volume arrays
     for b=1:35
         for d = 1:length(dates)
-            if month(dates(d)) <= 3 || month(dates(d)) >= 10
+            if month(dates(d)) <= 4 || month(dates(d)) >= 10
                 doB = find(basinkey == basinOrder(b));
                 % Bonney
                 if (basinOrder(b) <= 29)
@@ -75,9 +73,31 @@
             end
         end
     end
-
-% Sum lake arrays
+    
+    % Sum lake arrays
     lakeDayVol = [sum(LBDayVol,2) sum(LHDayVol,2) sum(LFDayVol,2)];
+    
+    % Add subaqueous and snowmelt fluxes (m3/day)
+    for d = 1:length(dates)
+        
+        % Bonney - subaqueous flux - year round
+        % Q_subaq_LB = 0;
+        Q_subaq_LB = 86;
+        lakeDayVol(d,1) = lakeDayVol(d,1) + Q_subaq_LB;
+        
+        % Hoare - subaqueous flux - year round
+        % Q_subaq_LH = 0;
+        Q_subaq_LH = 87;
+        lakeDayVol(d,2) = lakeDayVol(d,2) + Q_subaq_LH;
+        
+        % Fryxell - snowmelt flux - DJF only
+        % Q_snow_LF = 0;
+        % Q_snow_LF = 5000;
+        Q_snow_LF = 3750;
+        if month(dates(d)) <= 2 || month(dates(d)) >= 11
+            lakeDayVol(d,3) = lakeDayVol(d,3) + Q_snow_LF;
+        end
+    end
     
 % Data output file
     outDirectory = 'Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/';
