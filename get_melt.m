@@ -1,7 +1,7 @@
 % Adapted for modifications to Obryk et al 2017
 % By Julian Cross
 
-%function [] = get_melt
+function [] = get_melt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Load annual melt volumes from ICEMELT model
 %   Schema to sum model basin contribution by lake basin
@@ -112,5 +112,5 @@
     
     close all
     
-%end
+end
 %
