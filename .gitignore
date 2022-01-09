@@ -7,5 +7,6 @@ lake-model-daily.sublime-project
 lake-model-daily.sublime-workspace
 
 # exclude these directories
+blob_storage
 
 # except these files
