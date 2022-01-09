@@ -40,21 +40,21 @@ clear LF
 bonney_datum = 62.295;
 
 lake.modeled.LB.date(:,1) =lake.t_vec + 728840;
-lake.modeled.LB.dh(:,1) = lake.h.glacier(1,:)'-bonney_datum;
+lake.modeled.LB.dh(:,1) = lake.h(1,:)'-bonney_datum;
 
 % Hoare lake level change
 % hoare_datum = 74.04;
 hoare_datum = 74.03;
 
 lake.modeled.LH.date(:,1) = lake.t_vec + 728840;
-lake.modeled.LH.dh(:,1) = lake.h.glacier(2,:)'-hoare_datum;
+lake.modeled.LH.dh(:,1) = lake.h(2,:)'-hoare_datum;
 
 % Fryxell lake level change
 % fryxell_datum = 17.41;
 fryxell_datum = 17.35;
 
 lake.modeled.LF.date(:,1) = lake.t_vec + 728840;
-lake.modeled.LF.dh(:,1) = lake.h.glacier(3,:)'-fryxell_datum;
+lake.modeled.LF.dh(:,1) = lake.h(3,:)'-fryxell_datum;
 
 save('lake.mat', 'lake')
 
@@ -257,7 +257,7 @@ switch l
 end
 
 % MICROMET data
-modelinputdir  = '/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/melt-model/postprocess-output/input/met-data/input/';
+modelinputdir  = '/Users/Julian/Documents/_Projects/MDV-Lakes-Thesis/melt-model/postprocess-output/input/met-data/input/';
 iname='085'; jname='048';
 %iname='127'; jname='087';
 metfilename=[modelinputdir, iname,jname,'.bin'];

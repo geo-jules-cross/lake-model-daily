@@ -10,17 +10,10 @@
 %       Lake Fryxell     = 43 to 72
 % SUMMER MELT NOT ANNUAL TOTAL - IGNORE WINTER MELT
 
-% % Output Directory 
-%     meltDirectory='/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/data-raw/melt-data';
-% % Model melt data to use - change this
-%     meltData = 'basin-adj.mat';
-% %     meltData = 'alb-adj-2008.mat';
-%     melt = fullfile(meltDirectory, meltData);
-
 % Output Directory
-    outDirectory='/Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/melt-model/processed-data/';
-
-    runDate='20210207_BASINS_M4/';
+    outDirectory='/Users/Julian/Documents/_Projects/MDV-Lakes-Thesis/melt-model/processed-data/';
+    
+    runDate='20211115_ADJ_M3/';
     runname= 'basin-multi-adj-ekh-alb-2007.mat';
     
     path2output=[outDirectory runDate runname];

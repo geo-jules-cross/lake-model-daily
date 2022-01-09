@@ -12,12 +12,14 @@ function [] = get_sublimation
     years(:,1)= 1995:2012;
     
     % Adjustments
-    Temp_adj = 0.0;
-%     Temp_adj = 0.0;
+    Temp_add = 0.0;
+%     Temp_add = 0.275;
+%     Temp_add = -0.275;
 
-%     Wind_adj = 0.8;
     Wind_adj = 1.0;
-    
+%     Wind_adj = 1.1;
+%     Wind_adj = 0.9;
+
     Fryxell_albedo = 0;
     
     % Constants
@@ -97,7 +99,7 @@ function [] = get_sublimation
             windspd  = MicroMet(:,3);       %  windsp 3    
             
             % Make met adjustments
-            Tair(:)  = TairC(:) + Tf + Temp_adj;       % Convert from C to K
+            Tair(:)  = TairC(:) + Tf + Temp_add; % Convert from C to K and adjust
             windspd(:) = windspd(:) * Wind_adj;
             
             % Look up correct surface roughness length (m)

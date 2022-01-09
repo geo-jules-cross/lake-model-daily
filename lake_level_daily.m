@@ -239,7 +239,7 @@ for b = 1:basinloop
     
     lake.Q_glacier(b,:) = Q_glacier;
     %lake.h.glacier(b,:) = h;
-    lake.h = h;
+    lake.h(b,:) = h;
     lake.A(b,:) = A;
     lake.V(b,:) = V;
     lake.dV(b,:)= deltaV;

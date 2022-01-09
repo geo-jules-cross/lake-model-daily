@@ -84,8 +84,10 @@ for l=1:3
 
     % Calculate root-mean-squared (RMS) error manually
     skill(l).err = (obs(:,l) - mod(:,l));
+    skill(l).mae = mean(abs(skill(l).err), 'omitnan');
     SE = skill(l).err.^2;
     MSE = nansum(SE)/length(~isnan(SE));
+    skill(l).mse = MSE;
     skill(l).rmse = sqrt(MSE);
 
     % Calculate normalized RMS error manually (to std of obs)
@@ -114,8 +116,8 @@ for l=1:3
     x = obs(:,l);
     y = mod(:,l);
     sz = 25;
-    c = lake.t_vec+startday;
-%     c = 'k';
+    %c = lake.t_vec+startday;
+     c = 'k';
     
     scatter(x,y,sz,c,'filled'); hold on;
     line([0 5], [0 5],'Color','red','LineStyle','--','LineWidth', 1.5)
