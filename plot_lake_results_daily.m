@@ -90,7 +90,7 @@ for d = 1:6061
 end
 %% Plot lake level change - All one plot
 
-% figure(1); clf; hold all; box on; grid off;
+% figure(5); clf; hold all; box on; grid off;
 % set(gcf,'units','normalized','outerposition',[0.1 0.3 0.6 0.6])
 % 
 % c = [0.5 0.5 0.5];
@@ -130,7 +130,7 @@ end
 
 %% Plot lake level change - Seperate plots
 
-figure(2); clf; clear ha; ha = tight_subplot(3,1, [0.03 0.05], [.11 .01], [.08 .03]);
+figure(5); clf; clear ha; ha = tight_subplot(3,1, [0.03 0.05], [.11 .01], [.08 .03]);
 set(gcf,'units','normalized','outerposition',[0.1 0.05 0.6 0.9])
 
 c = [0.5 0.5 0.5];
@@ -221,7 +221,7 @@ set(ha(1:3),'Xlim', [datetime(1996,1,1) datetime(2014,1,1)]);
 
 %% Plot annual lake water balance for specific year and lake
 
-figure(3); clf; clear ha; ha = tight_subplot(3,1, [0.03 0.05], [.11 .01], [.08 .03]);
+figure(6); clf; clear ha; ha = tight_subplot(3,1, [0.03 0.05], [.11 .01], [.08 .03]);
 set(gcf,'units','normalized','outerposition',[0.05 0.05 0.9 0.9])
 
 % Set which lake and year
