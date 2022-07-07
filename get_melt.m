@@ -14,7 +14,7 @@ function [] = get_melt
     runDate='20211115_ADJ_M3_';
     runname= 'basin-multi-adj-ekh-alb-2007.mat';
     
-    path2output=['/DATA/' runDate runname];
+    path2output=['DATA/' runDate runname];
     melt = fullfile(path2output);
 
 % Load data
@@ -90,9 +90,6 @@ function [] = get_melt
         end
     end
     
-% Data output file
-    outDirectory = 'Users/Julian/Documents/!School/PSU GEOG MS/MDV-Lakes-Thesis/lake-model/DATA/';
-
 % Format and update input data files
     fileList = {'DATA/Q_glacier_LB.txt', 'DATA/Q_glacier_LH.txt', 'DATA/Q_glacier_LF.txt'};
 
