@@ -5,10 +5,10 @@ Options for the lake model can be set in the following ways:
 1. Set options in the `get_input_flags.m` file. 
     - This function tells the main program where and how to setup inflows, climate, and hypsometry.
     - The `Q_glacier_flag` option sets what inflow file to use.
-    - Other fluxes can be read from a file or generated as a time series.
+    - Sublimation outflow can be read from a file or generated as a time series.
     - The basin hypsometry can also be read from a file or generated manually.
     - Which lake basin to run can be set with the `flag.basin` option.
-    - Finally, you can choose whether to rebuild the melt inflow file or not with the `flag.melt` option.
+    - Finally, you can choose whether to rebuild the inflow and outflow files with the `flag.melt` and `flag.sublimation` options.
 2. Set options in the `get_times.m` file.
     - This funtion sets the model run period and creates the `t_vec` array for time stepping through this period.
 3. Set options in the `get_fluxes.m` file.
