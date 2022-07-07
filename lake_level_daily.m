@@ -1,7 +1,7 @@
 % --------------------------------------------------------
 % Adapted from Obryk et al 2017
 % By Julian Cross
-% Code originally by E. Waddington
+% Code originally by E. Waddington and M. Obryk
 %
 % calculate lake-level history of a land-locked lake basin
 %  e.g. Glacial Lake Washburn in Taylor Valley

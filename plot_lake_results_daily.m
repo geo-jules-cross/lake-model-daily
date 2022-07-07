@@ -257,10 +257,8 @@ switch l
 end
 
 % MICROMET data
-modelinputdir  = '/Users/Julian/Documents/_Projects/MDV-Lakes-Thesis/melt-model/postprocess-output/input/met-data/input/';
 iname='085'; jname='048';
-%iname='127'; jname='087';
-metfilename=[modelinputdir, iname,jname,'.bin'];
+metfilename=['DATA/', iname,jname,'.bin'];
 metfile=fopen(metfilename,'r');
 micromet=fread(metfile,[6 Inf],'float32')';
 fclose(metfile);

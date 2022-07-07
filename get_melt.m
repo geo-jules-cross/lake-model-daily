@@ -10,14 +10,12 @@ function [] = get_melt
 %       Lake Fryxell     = 43 to 72
 % SUMMER MELT NOT ANNUAL TOTAL - IGNORE WINTER MELT
 
-% Output Directory
-    outDirectory='/Users/Julian/Documents/_Projects/MDV-Lakes-Thesis/melt-model/processed-data/';
-    
-    runDate='20211115_ADJ_M3/';
+% Set input meltwater file
+    runDate='20211115_ADJ_M3_';
     runname= 'basin-multi-adj-ekh-alb-2007.mat';
     
-    path2output=[outDirectory runDate runname];
-    melt= fullfile(path2output);
+    path2output=['/DATA/' runDate runname];
+    melt = fullfile(path2output);
 
 % Load data
     load(melt);

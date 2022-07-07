@@ -8,9 +8,7 @@ function [ flags ] = get_input_flags
 %     0 - read flux histories from external files or 
 %     1 - generate time series in matlab function get_fluxes.m
 %
-    flags.P_flag         	= 0;    %  Precipitation
     flags.S_flag         	= 0;    %  Sublimation
-    flags.E_flag         	= 0;    %  Evaporation
 %
 %     0 - read hypsometry data from external file or 
 %     1 - generate hypsometry data in matlab function get_geometry.m
