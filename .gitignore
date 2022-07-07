@@ -1,9 +1,9 @@
 # list of files to ignore by git
 
 # exclude these input data files
-DATA/ES*
-DATA/lf_albedo.mat
-DATA/dh_*_1995.txt
+/DATA/ES*
+/DATA/lf_albedo.mat
+/DATA/dh_*_1995.txt
 
 # exclude these files
 desktop.ini
