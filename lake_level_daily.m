@@ -6,7 +6,7 @@
 % calculate lake-level history of a land-locked lake basin
 %  e.g. Glacial Lake Washburn in Taylor Valley
 %
-%  The program solves the ODE
+% The program solves the ODE
 %
 % dV/dt = Q_glacier(t) +  P(t) - S(t) - E(t) * A(t)                 (1)
 %

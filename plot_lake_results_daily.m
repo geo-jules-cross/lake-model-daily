@@ -345,3 +345,119 @@ datetick('x',dateformat, 'KeepTicks')
 %legend({'Daily', 'Cumulative'}, 'Location', 'NorthWest', 'box', 'off');
 
 set(ha(1:3),'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'LineWidth', 1.25, 'FontSize', 14, 'GridColor', 'k');
+
+%% Load Sublimation Data
+
+var = 'data';
+T = load('DATA/duganSummer', 'data');
+duganSummer = T.(var);
+
+var = 'data';
+T = load('DATA/duganWinter', 'data');
+duganWinter = T.(var);
+
+sublimation_file = readtable('DATA/sublimation_model.csv');
+sublimation = table2array(sublimation_file);
+clear T;
+
+%% Calculate Error Statistics
+
+diff.err.LF = sublimation(:,7) - (duganWinter(3:20,1));
+diff.SE.LF = diff.err.LF.^2;
+diff.AE.LF = abs(diff.err.LF);
+diff.PE.LF = diff.AE.LF./(duganWinter(3:20,1));
+diff.MAE.LF = nansum(diff.AE.LF)/length(~isnan(diff.AE.LF));
+diff.CE.LF = nansum(diff.err.LF);
+diff.MSE.LF = nansum(diff.SE.LF)/length(~isnan(diff.SE.LF));
+diff.RMSE.LF = sqrt(diff.MSE.LF);
+
+diff.err.LH = sublimation(:,4) - (duganWinter(3:20,2));
+diff.SE.LH = diff.err.LH.^2;
+diff.AE.LH = abs(diff.err.LH);
+diff.PE.LH = diff.AE.LH./(duganWinter(3:20,2));
+diff.MAE.LH = nansum(diff.AE.LH)/length(~isnan(diff.AE.LH));
+diff.CE.LH = nansum(diff.err.LH);
+diff.MSE.LH = nansum(diff.SE.LH)/length(~isnan(diff.SE.LH));
+diff.RMSE.LH = sqrt(diff.MSE.LH);
+
+diff.err.LB = sublimation(:,1) - (duganWinter(3:20,3));
+diff.SE.LB = diff.err.LB.^2;
+diff.AE.LB = abs(diff.err.LB);
+diff.PE.LB = diff.AE.LB./(duganWinter(3:20,3));
+diff.MAE.LB = nansum(diff.AE.LB)/length(~isnan(diff.AE.LB));
+diff.CE.LB = nansum(diff.err.LB);
+diff.MSE.LB = nansum(diff.SE.LB)/length(~isnan(diff.SE.LB));
+diff.RMSE.LB = sqrt(diff.MSE.LB);
+
+%% Plot measured ablation (Dugan et al 2013) versus estimated sublimation
+
+figure(4); clf; clear ha; ha = tight_subplot(3,1, [0.02 0.02], [.11 .05], [.08 .04]);
+set(gcf,'units','normalized','outerposition',[0.4 0.06 0.6 0.9])
+
+yearsPlotting = 1994:2013;
+c = colormap('gray');
+
+% Lake Bonney
+axes(ha(1));
+
+hBarGrp = bar(yearsPlotting(2:19), sublimation(:,1:3)*1000, 'grouped', 'stacked');
+% off=hBarGrp(1).XOffset + 0.1;
+off=0.2;
+bar1 = bar(yearsPlotting(2:19)+off, sublimation(:,1:2)*1000, 0.4, 'stacked');
+hold on;
+bar2 = bar(yearsPlotting(2:19)-off, [duganWinter(2:19,3)*1000 duganSummer(2:19,3)*1000], 0.4, 'stacked');
+
+xlim([2001.4 2011.75])
+ylim([0 1800])
+set(bar1(1),'FaceColor',c(1,:))
+set(bar1(2),'FaceColor',c(50,:))
+set(bar2(1),'FaceColor',c(35,:))
+set(bar2(2),'FaceColor',c(60,:))
+yticklabels('auto')
+xticklabels('')
+legend({'Sim. Winter Sublimation', 'Sim. Summer Sublimation' 'Obs. Winter Sublimation' 'Obs. Summer Ablation'}, 'box', 'off','Location', [0.11,0.83,0.23,0.092]);
+ntitle({'' 'Lake Bonney'}, 'FontWeight', 'bold', 'FontSize',14);
+set(gca,'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'FontSize',14,'LineWidth', 1.5, 'GridColor', 'k');
+box('off')
+
+% Lake Hoare
+axes(ha(2));
+
+hBarGrp = bar(yearsPlotting(2:19), sublimation(:,4:6)*1000, 'grouped', 'stacked');
+off=0.2;
+bar1 = bar(yearsPlotting(2:19)+off, sublimation(:,4:5)*1000, 0.4, 'stacked');
+hold on;
+bar2 = bar(yearsPlotting(2:19)-off, [duganWinter(2:19,2)*1000 duganSummer(2:19,2)*1000], 0.4, 'stacked');
+
+xlim([2001.4 2011.75])
+ylim([0 1800])
+ylabel('Ablation [mm w.e. yr^{-1}]')
+set(bar1(1),'FaceColor',c(1,:))
+set(bar1(2),'FaceColor',c(50,:))
+set(bar2(1),'FaceColor',c(35,:))
+set(bar2(2),'FaceColor',c(60,:))
+yticklabels('auto')
+xticklabels('')
+ntitle({'' 'Lake Hoare'}, 'FontWeight', 'bold', 'FontSize',14);
+set(gca,'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'FontSize',14,'LineWidth', 1.5, 'GridColor', 'k');
+box('off')
+
+% Lake Fryxell
+axes(ha(3));
+hBarGrp = bar(yearsPlotting(2:19), sublimation(:,7:9)*1000, 'grouped', 'stacked');
+off=0.2;
+bar1 = bar(yearsPlotting(2:19)+off, sublimation(:,7:8)*1000, 0.4, 'stacked');
+hold on;
+bar2 = bar(yearsPlotting(2:19)-off, [duganWinter(2:19,1)*1000 duganSummer(2:19,1)*1000], 0.4, 'stacked');
+
+xlim([2001.4 2011.75])
+ylim([0 1800])
+set(bar1(1),'FaceColor',c(1,:))
+set(bar1(2),'FaceColor',c(50,:))
+set(bar2(1),'FaceColor',c(35,:))
+set(bar2(2),'FaceColor',c(60,:))
+yticklabels('auto')
+xlabel('Water Year')
+ntitle({'' 'Lake Fryxell'}, 'FontWeight', 'bold', 'FontSize',14);
+set(gca,'XColor','k', 'YColor', 'k', 'FontWeight', 'bold', 'FontSize',14,'LineWidth', 1.5, 'GridColor', 'k');
+box('off')

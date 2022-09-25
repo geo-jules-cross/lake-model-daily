@@ -70,7 +70,7 @@ function [] = get_sublimation
     sublimation = zeros(6425,3);
     evaporation = zeros(6425,3);
 
-    for l = 1:3 % lake counter
+    for l = 1:3 % lake counter       
         for season = 1:2 % 1 = winter; 2 = summer
 
             % Lookup MicroMet cell coordinates
@@ -123,7 +123,7 @@ function [] = get_sublimation
                 end
             end
 
-            % Start calcualting subliamtion at each time-step
+            % Start calcualting sublimation at each time-step
             for itime = 1:nrows
                 
                 if windspd(itime) < 1
@@ -231,7 +231,7 @@ function [] = get_sublimation
                 
             end
         
-            % Calculate daily totals
+            % Calculate daily totals for summer and winter seperately
             for d = 1:length(Date)
                 if d == 1
                     g = 1;
@@ -249,8 +249,7 @@ function [] = get_sublimation
         
         end % for season = 1:2
 
-        % Calculate annual totals based on balance
-        % for model water years 1995 to 2013
+        % Calculate daily totals based on Dec-Jan summer
         for day = 1:length(Date)
             if day < 213
                 continue
@@ -261,7 +260,7 @@ function [] = get_sublimation
             end
         end
         
-        % Calculate annual totals with summer open water evaporation
+        % Calculate daily totals with summer open water evaporation
         for day = 1:length(Date)
             if day < 213
                 continue
@@ -271,15 +270,13 @@ function [] = get_sublimation
                 evaporation(day,l) = water_daily(day,1);
             end
         end
-        
     end % for l = 1:3
 
     % Data output file
     outDirectory = '/DATA/';
-
+    
     % Output file
     fileList = {'DATA/S_data_LB.txt', 'DATA/S_data_LH.txt', 'DATA/S_data_LF.txt'};
-
 
     % Format and update input data files
     for f=1:length(fileList)
