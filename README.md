@@ -1,5 +1,7 @@
 # Lake Model Options
 
+[![DOI](https://zenodo.org/badge/244526280.svg)](https://zenodo.org/badge/latestdoi/244526280)
+
 Options for the lake model can be set in the following ways:
 
 1. Set options in the `get_input_flags.m` file. 
